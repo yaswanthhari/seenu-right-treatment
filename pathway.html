@@ -274,32 +274,35 @@
         </section>
 
         <!-- Resources Section -->
-        <section style="margin: 50px 0;">
-            <h2>📚 Additional Resources</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <div class="hospital-card">
-                    <h3><i class="fas fa-download"></i> Download Pathway PDF</h3>
-                    <p>Printable guide for offline reference</p>
-                    <button class="btn btn-primary" onclick="downloadPathway()" style="margin-top: 10px;">
-                        Download Guide
-                    </button>
-                </div>
-                <div class="hospital-card">
-                    <h3><i class="fas fa-calendar-check"></i> Create Treatment Calendar</h3>
-                    <p>Track appointments and medications</p>
-                    <button class="btn btn-secondary" onclick="createCalendar()" style="margin-top: 10px;">
-                        Start Calendar
-                    </button>
-                </div>
-                <div class="hospital-card">
-                    <h3><i class="fas fa-question-circle"></i> Need Help Now?</h3>
-                    <p>Talk to our cancer counselors</p>
-                    <a href="contact.html" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">
-                        Get Guidance
-                    </a>
-                </div>
-            </div>
-        </section>
+        <section style="margin-top: 50px;">
+    <h2>📚 Additional Resources</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+        
+        <!-- PDF Download Card -->
+        <div class="hospital-card">
+            <h3><i class="fas fa-file-pdf"></i> Download Pathway PDF</h3>
+            <p>Printable guide for offline reference</p>
+            <a href="images/downloads/ncg-guidelines-manual-2021.pdf" 
+               class="btn btn-primary" 
+               style="margin-top: 15px;"
+               download="Cancer-Treatment-Pathway-Guide.pdf">
+                <i class="fas fa-download"></i> Download Guide
+            </a>
+        </div>
+        
+        <!-- Calendar Card -->
+        <div class="hospital-card">
+            <h3><i class="fas fa-calendar-alt"></i> Create Treatment Calendar</h3>
+            <p>Track appointments and medications</p>
+            <a href="calendar-template.html" 
+               target="_blank"
+               class="btn btn-primary" 
+               style="margin-top: 15px;">
+                <i class="fas fa-calendar-plus"></i> Start Calendar
+            </a>
+        </div>
+    </div>
+</section>
     </div>
 
     <!-- Footer -->
