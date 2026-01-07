@@ -64,7 +64,6 @@
             margin-top: 15px;
         }
         
-        /* Search Section Styles */
         .city-search-section {
             padding: 60px 0;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f7ff 100%);
@@ -180,16 +179,6 @@
         .no-results {
             text-align: center;
             padding: 40px;
-        }
-        
-        .error-message {
-            background: #fee2e2;
-            border: 1px solid #fca5a5;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-            color: #b91c1c;
         }
     </style>
 </head>
@@ -370,20 +359,125 @@
     </footer>
 
     <script>
+        // ========== STATIC HOSPITAL DATABASE ==========
+        const staticHospitals = [
+            {
+                id: 1,
+                name: "Tata Memorial Hospital",
+                type: "Government",
+                city: "Mumbai",
+                state: "Maharashtra",
+                phone: "022-24177000",
+                emergency: "022-24146750",
+                specializations: ["Oncology", "Radiation", "Surgery"],
+                verified: true
+            },
+            {
+                id: 2,
+                name: "AIIMS Cancer Center",
+                type: "Government",
+                city: "Delhi",
+                state: "Delhi",
+                phone: "011-26588500",
+                specializations: ["Medical Oncology", "Pediatric"],
+                verified: true
+            },
+            {
+                id: 3,
+                name: "Apollo Cancer Institute",
+                type: "Private",
+                city: "Chennai",
+                state: "Tamil Nadu",
+                phone: "044-28203333",
+                specializations: ["All Cancers"],
+                verified: true
+            },
+            {
+                id: 4,
+                name: "Sri Venkateswara Institute of Cancer Care",
+                type: "Government",
+                city: "Tirupati",
+                state: "Andhra Pradesh",
+                phone: "0877-2285001",
+                emergency: "0877-2285002",
+                specializations: ["Medical Oncology", "Radiation", "Surgery"],
+                verified: true
+            },
+            {
+                id: 5,
+                name: "Bangalore Oncology Center",
+                type: "Private",
+                city: "Bangalore",
+                state: "Karnataka",
+                phone: "080-22223333",
+                specializations: ["All Cancers", "Immunotherapy"],
+                verified: true
+            },
+            {
+                id: 6,
+                name: "Kolkata Cancer Institute",
+                type: "Government",
+                city: "Kolkata",
+                state: "West Bengal",
+                phone: "033-24445555",
+                emergency: "033-24445556",
+                specializations: ["Surgical Oncology", "Radiation"],
+                verified: true
+            },
+            {
+                id: 7,
+                name: "Nellore Cancer Care Center",
+                type: "Private",
+                city: "Nellore",
+                state: "Andhra Pradesh",
+                phone: "0861-2345678",
+                specializations: ["Chemotherapy", "Palliative Care"],
+                verified: true
+            },
+            {
+                id: 8,
+                name: "Tirupati Cancer Hospital",
+                type: "Private",
+                city: "Tirupati",
+                state: "Andhra Pradesh",
+                phone: "0877-2233445",
+                specializations: ["Chemotherapy", "Palliative Care"],
+                verified: false
+            },
+            {
+                id: 9,
+                name: "Hyderabad Cancer Care",
+                type: "Private",
+                city: "Hyderabad",
+                state: "Telangana",
+                phone: "040-33445566",
+                specializations: ["Medical Oncology", "Targeted Therapy"],
+                verified: true
+            },
+            {
+                id: 10,
+                name: "Pune Cancer Hospital",
+                type: "Private",
+                city: "Pune",
+                state: "Maharashtra",
+                phone: "020-44556677",
+                specializations: ["Pediatric Oncology", "Bone Marrow Transplant"],
+                verified: true
+            }
+        ];
+
         // ========== CITY SEARCH FUNCTIONS ==========
-        async function searchHospitalsByCity() {
+        function searchHospitalsByCity() {
             const cityInput = document.getElementById('citySearch').value.trim();
             if (!cityInput) {
                 alert('Please enter a city name');
                 return;
             }
             
-            await searchCity(cityInput);
+            searchCity(cityInput);
         }
 
-        async function searchCity(city) {
-            console.log('Searching for:', city);
-            
+        function searchCity(city) {
             // Update search box
             document.getElementById('citySearch').value = city;
             
@@ -394,30 +488,27 @@
             // Show loading
             document.getElementById('hospitalsList').innerHTML = `
                 <div style="text-align: center; padding: 40px;">
-                    <i class="fas fa-spinner fa-spin loading-spinner" style="font-size: 2rem; color: #2563eb;"></i>
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: #2563eb;"></i>
                     <p>Searching hospitals in ${city}...</p>
                 </div>
             `;
             document.getElementById('noResults').style.display = 'none';
             document.getElementById('resultsTitle').textContent = `Searching in ${city}...`;
             
-            try {
-                // IMPORTANT: Use your server's port (5000)
-                const response = await fetch(`http://localhost:5000/api/hospitals/search/${encodeURIComponent(city)}`);
+            // Simulate API delay
+            setTimeout(() => {
+                const cityLower = city.toLowerCase();
+                const filtered = staticHospitals.filter(h => 
+                    h.city.toLowerCase().includes(cityLower) || 
+                    h.state.toLowerCase().includes(cityLower)
+                );
                 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                console.log('Search results:', data);
-                
-                if (data.success && data.hospitals && data.hospitals.length > 0) {
+                if (filtered.length > 0) {
                     // Show results
-                    document.getElementById('resultsTitle').textContent = `🏥 Found ${data.count} cancer hospitals in ${city}`;
+                    document.getElementById('resultsTitle').textContent = `🏥 Found ${filtered.length} cancer hospital${filtered.length > 1 ? 's' : ''} in ${city}`;
                     
                     let html = '';
-                    data.hospitals.forEach(hospital => {
+                    filtered.forEach(hospital => {
                         html += `
                             <div class="hospital-search-item">
                                 <h4>${hospital.name}</h4>
@@ -427,10 +518,10 @@
                                 ${hospital.emergency ? `<p><strong>Emergency:</strong> ${hospital.emergency}</p>` : ''}
                                 <p><strong>Specializations:</strong> ${hospital.specializations.join(', ')}</p>
                                 <div class="hospital-actions">
-                                    <button onclick="callHospitalNumber('${hospital.phone}')" class="btn btn-primary">
+                                    <button onclick="callHospital('${hospital.phone}')" class="btn btn-primary">
                                         <i class="fas fa-phone"></i> Call
                                     </button>
-                                    <button onclick="getHospitalDirections('${hospital.name}, ${hospital.city}')" class="btn btn-secondary">
+                                    <button onclick="getDirections('${hospital.name}, ${hospital.city}')" class="btn btn-secondary">
                                         <i class="fas fa-map-marker-alt"></i> Directions
                                     </button>
                                 </div>
@@ -446,71 +537,23 @@
                     document.getElementById('hospitalsList').innerHTML = '';
                     document.getElementById('noResults').style.display = 'block';
                 }
-                
-            } catch (error) {
-                console.error('Search error:', error);
-                document.getElementById('resultsTitle').textContent = 'Error searching hospitals';
-                document.getElementById('hospitalsList').innerHTML = `
-                    <div class="error-message">
-                        <p><strong>Unable to search at the moment.</strong></p>
-                        <p>Please make sure the server is running on port 5000.</p>
-                        <p>Error: ${error.message}</p>
-                        <button onclick="searchCity('${city}')" class="city-tag" style="margin-top: 10px;">
-                            <i class="fas fa-redo"></i> Try Again
-                        </button>
-                    </div>
-                `;
-            }
+            }, 500);
         }
 
         // ========== HOSPITAL LIST FUNCTIONS ==========
         let hospitals = [];
 
-        // Load hospitals from API
-        async function loadAllHospitals() {
+        // Load hospitals from static data
+        function loadAllHospitals() {
             try {
-                // IMPORTANT: Use your server's port (5000)
-                const response = await fetch('http://localhost:5000/api/hospitals');
-                hospitals = await response.json();
+                hospitals = staticHospitals;
                 
                 displayHospitals(hospitals);
                 updateStats();
                 
             } catch (error) {
                 console.error('Error loading hospitals:', error);
-                document.getElementById('all-hospitals').innerHTML = `
-                    <div style="text-align: center; padding: 40px;">
-                        <h3>⚠️ Unable to load hospitals</h3>
-                        <p>Please check if the server is running on port 5000.</p>
-                        <p>Showing sample hospitals for demonstration:</p>
-                    </div>
-                `;
-                
-                // Show sample data
-                hospitals = [
-                    {
-                        id: 1,
-                        name: "Tata Memorial Hospital",
-                        type: "Government",
-                        city: "Mumbai",
-                        state: "Maharashtra",
-                        phone: "022-24177000",
-                        emergency: "022-24146750",
-                        specializations: ["Oncology", "Radiation", "Surgery"],
-                        verified: true
-                    },
-                    {
-                        id: 2,
-                        name: "AIIMS Cancer Center",
-                        type: "Government",
-                        city: "Delhi",
-                        state: "Delhi",
-                        phone: "011-26588500",
-                        specializations: ["Medical Oncology", "Pediatric"],
-                        verified: true
-                    }
-                ];
-                
+                hospitals = staticHospitals;
                 displayHospitals(hospitals);
                 updateStats();
             }
@@ -542,10 +585,10 @@
                         <span class="verified">${hospital.verified ? '✓ Government Verified' : 'Verification Pending'}</span>
                     </div>
                     <div style="margin-top: 20px; display: flex; gap: 10px;">
-                        <button onclick="callHospitalNumber('${hospital.phone}')" class="btn btn-primary" style="flex: 1;">
+                        <button onclick="callHospital('${hospital.phone}')" class="btn btn-primary" style="flex: 1;">
                             <i class="fas fa-phone"></i> Call
                         </button>
-                        <button onclick="getHospitalDirections('${hospital.name}, ${hospital.city}')" class="btn btn-secondary" style="flex: 1;">
+                        <button onclick="getDirections('${hospital.name}, ${hospital.city}')" class="btn btn-secondary" style="flex: 1;">
                             <i class="fas fa-map-marker-alt"></i> Directions
                         </button>
                     </div>
@@ -592,13 +635,13 @@
         }
 
         // ========== HELPER FUNCTIONS ==========
-        function callHospitalNumber(phone) {
+        function callHospital(phone) {
             if (confirm(`Call ${phone}?`)) {
                 window.location.href = `tel:${phone}`;
             }
         }
 
-        function getHospitalDirections(address) {
+        function getDirections(address) {
             const query = encodeURIComponent(address);
             window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
         }
@@ -620,21 +663,6 @@
                     searchHospitalsByCity();
                 }
             });
-            
-            // Add test button for debugging
-            const testBtn = document.createElement('button');
-            testBtn.innerHTML = '<i class="fas fa-bug"></i> Test Connection';
-            testBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: #dc2626; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 0.9rem;';
-            testBtn.onclick = async () => {
-                try {
-                    const response = await fetch('http://localhost:5000/api/hospitals');
-                    const data = await response.json();
-                    alert(`✅ Server is working! Found ${data.length} hospitals.`);
-                } catch (error) {
-                    alert(`❌ Server not responding: ${error.message}`);
-                }
-            };
-            document.body.appendChild(testBtn);
         });
     </script>
 </body>
