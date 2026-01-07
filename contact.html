@@ -354,7 +354,7 @@
                     <ul>
                         <li><i class="fas fa-phone"></i> Helpline: 1800-XXX-XXXX</li>
                         <li><i class="fas fa-envelope"></i> contact@seensusrighttreatment.org</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tirupati, India</li>
                     </ul>
                 </div>
             </div>
@@ -364,45 +364,13 @@
         </div>
     </footer>
 
-    <script>
-        // Handle contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // In a real application, you would send this to your server
-            // For now, show a success message
-            const messageDiv = document.getElementById('formMessage');
-            messageDiv.style.display = 'block';
-            messageDiv.innerHTML = `
-                <div style="background: #d1fae5; color: #065f46; padding: 15px; border-radius: 8px;">
-                    <h4><i class="fas fa-check-circle"></i> Message Sent Successfully!</h4>
-                    <p>Thank you, ${data.name}. Our team will contact you at ${data.phone} within 24 hours.</p>
-                    <p><strong>Reference ID:</strong> SRT-${Date.now().toString().slice(-6)}</p>
-                </div>
-            `;
-            
-            // Reset form
-            this.reset();
-            
-            // Scroll to message
-            messageDiv.scrollIntoView({ behavior: 'smooth' });
-        });
-       function getDirections() {
-    // Your permanent address
-    const yourAddress = "Bapuji Colony, Sullurupeta, Tirupati District, Andhra Pradesh";
-    const query = encodeURIComponent(yourAddress);
+<script>
     
-    // Debug: Show the URL in console
-    console.log("Google Maps URL:", `https://www.google.com/maps/search/?api=1&query=${query}`);
-    console.log("Original address:", yourAddress);
-    console.log("Encoded query:", query);
-    
-    // Test if it opens correctly
-    window.open(`https://www.google.com/maps/dir//Sullurupeta,+Andhra+Pradesh+524121/@13.6916493,79.9858168,14z/data=!4m18!1m8!3m7!1s0x3a4d74b9f96cad3d:0x5c64dfcdec37a1f3!2sSullurupeta,+Andhra+Pradesh+524121!3b1!8m2!3d13.7008756!4d80.0209065!16zL20vMDc3cGMx!4m8!1m0!1m5!1m1!1s0x3a4d74b9f96cad3d:0x5c64dfcdec37a1f3!2m2!1d80.0209065!2d13.7008756!3e0?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D`);
-}   
-    </script>
+    // Function for YOUR location
+    function openMyLocation() {
+        const mapsUrl = "https://www.google.com/maps/dir//Sullurupeta,+Andhra+Pradesh+524121/@13.6916493,79.9858168,14z/data=!4m18!1m8!3m7!1s0x3a4d74b9f96cad3d:0x5c64dfcdec37a1f3!2sSullurupeta,+Andhra+Pradesh+524121!3b1!8m2!3d13.7008756!4d80.0209065!16zL20vMDc3cGMx!4m8!1m0!1m5!1m1!1s0x3a4d74b9f96cad3d:0x5c64dfcdec37a1f3!2m2!1d80.0209065!2d13.7008756!3e0?entry=ttu&g_ep=EgoyMDIyMTIwOS4wIKXMDSoASAFQAw%E";
+        window.open(mapsUrl, '_blank');
+    }
+</script>
 </body>
 </html>
