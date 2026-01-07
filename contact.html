@@ -390,11 +390,19 @@
             // Scroll to message
             messageDiv.scrollIntoView({ behavior: 'smooth' });
         });
-        
-        function showLocation() {
-            const address = encodeURIComponent("Mumbai, Maharashtra, India");
-            window.open(`https://www.google.com/maps/search/?api=1&query=${address}`, '_blank');
-        }
+       function getDirections() {
+    // Your permanent address
+    const yourAddress = "Bapuji Colony, Sullurupeta, Tirupati District, Andhra Pradesh";
+    const query = encodeURIComponent(yourAddress);
+    
+    // Debug: Show the URL in console
+    console.log("Google Maps URL:", `https://www.google.com/maps/search/?api=1&query=${query}`);
+    console.log("Original address:", yourAddress);
+    console.log("Encoded query:", query);
+    
+    // Test if it opens correctly
+    window.open(`https://www.google.com/maps/dir//Sullurupeta,+Andhra+Pradesh+524121/@13.6916493,79.9858168,14z/data=!4m18!1m8!3m7!1s0x3a4d74b9f96cad3d:0x5c64dfcdec37a1f3!2sSullurupeta,+Andhra+Pradesh+524121!3b1!8m2!3d13.7008756!4d80.0209065!16zL20vMDc3cGMx!4m8!1m0!1m5!1m1!1s0x3a4d74b9f96cad3d:0x5c64dfcdec37a1f3!2m2!1d80.0209065!2d13.7008756!3e0?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D`);
+}   
     </script>
 </body>
 </html>
