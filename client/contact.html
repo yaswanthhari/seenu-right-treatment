@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Support - Seenu's Right Treatment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .contact-card.emergency {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            border-left: 5px solid #dc2626;
+        }
+        .contact-card.support {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-left: 5px solid #2563eb;
+        }
+        .contact-card.volunteer {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-left: 5px solid #10b981;
+        }
+        .contact-icon {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+        .contact-card.emergency .contact-icon {
+            color: #dc2626;
+        }
+        .contact-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #1e293b;
+        }
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .hours-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .hours-card h4 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-hand-holding-heart"></i> Seenu's Right Treatment</h1>
+                <p class="tagline">Timely care saves lives</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="detection.html">Early Detection</a></li>
+                <li><a href="pathway.html">Treatment Pathway</a></li>
+                <li><a href="financial.html">Financial Help</a></li>
+                <li><a href="find-help.html">Find Help</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section style="padding: 40px 0; text-align: center;">
+            <h1>📞 Contact & Support</h1>
+            <p>We're here to help. Reach out for guidance, support, or to volunteer.</p>
+        </section>
+
+        <!-- Emergency Contacts -->
+        <section>
+            <h2>🚨 Emergency Contacts</h2>
+            <p>For immediate medical emergencies, contact these numbers:</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card emergency">
+                    <div class="contact-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>Medical Emergency & Ambulance</h3>
+                    <div class="contact-number">108</div>
+                    <p>24/7 Free Ambulance Service</p>
+                    <p>Pan-India emergency response</p>
+                    <a href="tel:108" class="btn btn-primary" style="margin-top: 15px;">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+                
+                <div class="contact-card emergency">
+                    <div class="contact-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>National Cancer Helpline</h3>
+                    <div class="contact-number">1800-XXX-XXXX</div>
+                    <p>Free counseling and guidance</p>
+                    <p>Available in multiple languages</p>
+                    <a href="tel:1800-XXX-XXXX" class="btn btn-primary" style="margin-top: 15px;">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+                
+                <div class="contact-card emergency">
+                    <div class="contact-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Medical Emergency (Govt.)</h3>
+                    <div class="contact-number">102</div>
+                    <p>Government medical emergency</p>
+                    <p>Immediate medical assistance</p>
+                    <a href="tel:102" class="btn btn-primary" style="margin-top: 15px;">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Contacts -->
+        <section style="margin-top: 60px;">
+            <h2>🤝 Support & Guidance</h2>
+            <p>For non-emergency queries and guidance:</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card support">
+                    <div class="contact-icon">
+                        <i class="fas fa-comment-medical"></i>
+                    </div>
+                    <h3>Patient Guidance</h3>
+                    <p><strong>For treatment pathway guidance, second opinions, and hospital referrals</strong></p>
+                    <div class="contact-number">+91-XXXX-XXXXXX</div>
+                    <p>Email: guidance@seensusrighttreatment.org</p>
+                    <p>Mon-Sat: 9 AM - 6 PM</p>
+                </div>
+                
+                <div class="contact-card support">
+                    <div class="contact-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>Financial Assistance</h3>
+                    <p><strong>Help with government schemes, insurance, and crowdfunding</strong></p>
+                    <div class="contact-number">+91-XXXX-XXXXXX</div>
+                    <p>Email: finance@seensusrighttreatment.org</p>
+                    <p>Mon-Fri: 10 AM - 5 PM</p>
+                </div>
+                
+                <div class="contact-card volunteer">
+                    <div class="contact-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Volunteer & Partnerships</h3>
+                    <p><strong>To volunteer, partner, or collaborate with us</strong></p>
+                    <div class="contact-number">+91-XXXX-XXXXXX</div>
+                    <p>Email: volunteer@seensusrighttreatment.org</p>
+                    <p>Mon-Fri: 10 AM - 4 PM</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operating Hours -->
+        <section style="margin-top: 60px;">
+            <h2>🕒 Operating Hours</h2>
+            
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h4><i class="fas fa-phone-volume"></i> Helpline</h4>
+                    <p><strong>24/7 Available</strong></p>
+                    <p>Emergency calls only</p>
+                </div>
+                
+                <div class="hours-card">
+                    <h4><i class="fas fa-comments"></i> Guidance Support</h4>
+                    <p><strong>Monday - Saturday</strong></p>
+                    <p>9:00 AM - 6:00 PM</p>
+                    <p>Sunday: 10 AM - 2 PM</p>
+                </div>
+                
+                <div class="hours-card">
+                    <h4><i class="fas fa-file-contract"></i> Documentation Help</h4>
+                    <p><strong>Monday - Friday</strong></p>
+                    <p>10:00 AM - 5:00 PM</p>
+                </div>
+                
+                <div class="hours-card">
+                    <h4><i class="fas fa-users"></i> Volunteer Support</h4>
+                    <p><strong>Monday - Friday</strong></p>
+                    <p>10:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section style="margin-top: 60px;">
+            <h2>✉️ Send Us a Message</h2>
+            <p>Fill this form and our team will contact you within 24 hours.</p>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="queryType">Type of Query *</label>
+                        <select id="queryType" name="queryType" required>
+                            <option value="">Select query type</option>
+                            <option value="treatment">Treatment Guidance</option>
+                            <option value="financial">Financial Assistance</option>
+                            <option value="hospital">Hospital Referral</option>
+                            <option value="second_opinion">Second Opinion</option>
+                            <option value="volunteer">Volunteer Opportunity</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Please describe your query in detail..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" required>
+                            I agree to receive communications from Seenu's Right Treatment
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    
+                    <div id="formMessage" style="margin-top: 20px; display: none;"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Location -->
+        <section style="margin: 60px 0; text-align: center;">
+            <h2>📍 Our Location</h2>
+            <p><strong>Seenu's Right Treatment Foundation</strong></p>
+            <p>123 Cancer Care Avenue, Health City</p>
+            <p>Mumbai, Maharashtra - 400001</p>
+            <p>India</p>
+            
+            <div style="margin-top: 30px;">
+                <a href="mailto:contact@seensusrighttreatment.org" class="btn btn-secondary" style="margin: 10px;">
+                    <i class="fas fa-envelope"></i> Email Us
+                </a>
+                <button onclick="showLocation()" class="btn btn-primary" style="margin: 10px;">
+                    <i class="fas fa-map-marker-alt"></i> Get Directions
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Seenu's Right Treatment</h3>
+                    <p>Guiding cancer patients to timely care.</p>
+                    <p>A non-profit initiative for public awareness.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="detection.html">Early Detection</a></li>
+                        <li><a href="pathway.html">Treatment Pathway</a></li>
+                        <li><a href="financial.html">Financial Help</a></li>
+                        <li><a href="find-help.html">Find Hospitals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> Helpline: 1800-XXX-XXXX</li>
+                        <li><i class="fas fa-envelope"></i> contact@seensusrighttreatment.org</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Seenu's Right Treatment. This website provides informational guidance only. Always consult medical professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // In a real application, you would send this to your server
+            // For now, show a success message
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.style.display = 'block';
+            messageDiv.innerHTML = `
+                <div style="background: #d1fae5; color: #065f46; padding: 15px; border-radius: 8px;">
+                    <h4><i class="fas fa-check-circle"></i> Message Sent Successfully!</h4>
+                    <p>Thank you, ${data.name}. Our team will contact you at ${data.phone} within 24 hours.</p>
+                    <p><strong>Reference ID:</strong> SRT-${Date.now().toString().slice(-6)}</p>
+                </div>
+            `;
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to message
+            messageDiv.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        function showLocation() {
+            const address = encodeURIComponent("Mumbai, Maharashtra, India");
+            window.open(`https://www.google.com/maps/search/?api=1&query=${address}`, '_blank');
+        }
+    </script>
+</body>
+</html>

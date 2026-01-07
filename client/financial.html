@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Assistance - Seenu's Right Treatment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .scheme-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 5px solid #2563eb;
+        }
+        .scheme-card.government {
+            border-top-color: #10b981;
+        }
+        .scheme-card.ngo {
+            border-top-color: #8b5cf6;
+        }
+        .scheme-card.crowdfunding {
+            border-top-color: #f59e0b;
+        }
+        .benefits-list {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .benefits-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .benefits-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        .eligibility-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .apply-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .apply-step {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .apply-step .number {
+            background: #2563eb;
+            color: white;
+            min-width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .calculator {
+            background: #f0f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .calculator input, .calculator select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .calculator-result {
+            background: #10b981;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-hand-holding-heart"></i> Seenu's Right Treatment</h1>
+                <p class="tagline">Timely care saves lives</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="detection.html">Early Detection</a></li>
+                <li><a href="pathway.html">Treatment Pathway</a></li>
+                <li><a href="financial.html" class="active">Financial Help</a></li>
+                <li><a href="find-help.html">Find Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section style="padding: 40px 0;">
+            <h1>💰 Financial Assistance for Cancer Treatment</h1>
+            <p>Treatment shouldn't be delayed due to financial constraints. Explore government schemes, NGO support, and crowdfunding options.</p>
+            
+            <div class="eligibility-box">
+                <h3><i class="fas fa-info-circle"></i> Who Can Apply?</h3>
+                <p>Most schemes are available for:</p>
+                <ul>
+                    <li>Families below poverty line (BPL card holders)</li>
+                    <li>Annual income less than ₹3-5 lakhs</li>
+                    <li>All Indian citizens (some schemes for specific states)</li>
+                    <li>Patients without adequate insurance coverage</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Government Schemes -->
+        <section>
+            <h2>🏛️ Government Health Schemes</h2>
+            
+            <!-- Ayushman Bharat -->
+            <div class="scheme-card government">
+                <h3><i class="fas fa-shield-alt"></i> Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (PMJAY)</h3>
+                <p><strong>Coverage:</strong> ₹5 lakh per family per year for secondary and tertiary care hospitalization.</p>
+                
+                <div class="benefits-list">
+                    <p><strong>What's Covered:</strong></p>
+                    <ul>
+                        <li>All cancer treatments including chemotherapy, radiation, surgery</li>
+                        <li>Pre and post hospitalization expenses</li>
+                        <li>Diagnostic tests and medicines</li>
+                        <li>No age limit or pre-existing condition exclusion</li>
+                    </ul>
+                </div>
+                
+                <div class="apply-steps">
+                    <h4>How to Apply:</h4>
+                    <div class="apply-step">
+                        <div class="number">1</div>
+                        <div>Check eligibility at <a href="https://pmjay.gov.in" target="_blank">pmjay.gov.in</a> or call 14555</div>
+                    </div>
+                    <div class="apply-step">
+                        <div class="number">2</div>
+                        <div>Visit nearest Common Service Center (CSC) or empaneled hospital</div>
+                    </div>
+                    <div class="apply-step">
+                        <div class="number">3</div>
+                        <div>Submit Aadhaar card, income certificate, and BPL card (if applicable)</div>
+                    </div>
+                    <div class="apply-step">
+                        <div class="number">4</div>
+                        <div>Get e-card for cashless treatment at empaneled hospitals</div>
+                    </div>
+                </div>
+                
+                <a href="https://pmjay.gov.in" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i> Visit PMJAY Website
+                </a>
+            </div>
+
+            <!-- State Schemes -->
+            <div class="scheme-card government">
+                <h3><i class="fas fa-landmark"></i> State Government Schemes</h3>
+                
+                <table class="screening-table">
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>Scheme Name</th>
+                            <th>Coverage</th>
+                            <th>Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maharashtra</td>
+                            <td>Mahatma Jyotiba Phule Jan Arogya Yojana</td>
+                            <td>₹1.5 lakh/family</td>
+                            <td>1800-233-0303</td>
+                        </tr>
+                        <tr>
+                            <td>Tamil Nadu</td>
+                            <td>Chief Minister's Comprehensive Health Insurance</td>
+                            <td>₹5 lakh/family</td>
+                            <td>044-28554444</td>
+                        </tr>
+                        <tr>
+                            <td>Karnataka</td>
+                            <td>Vajpayee Arogyashree</td>
+                            <td>₹5 lakh/family</td>
+                            <td>080-44554455</td>
+                        </tr>
+                        <tr>
+                            <td>Delhi</td>
+                            <td>Delhi Arogya Kosh</td>
+                            <td>₹5 lakh/patient</td>
+                            <td>011-23392421</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- NGO Support -->
+        <section>
+            <h2>🤝 NGO & Charity Support</h2>
+            
+            <div class="scheme-card ngo">
+                <h3><i class="fas fa-hands-helping"></i> Cancer Patients Aid Association (CPAA)</h3>
+                <p><strong>Support Provided:</strong> Financial aid for treatment, medicines, and palliative care.</p>
+                
+                <div class="apply-steps">
+                    <h4>Documents Required:</h4>
+                    <div class="apply-step">
+                        <div class="number">1</div>
+                        <div>Cancer diagnosis confirmation from government hospital</div>
+                    </div>
+                    <div class="apply-step">
+                        <div class="number">2</div>
+                        <div>Income certificate and BPL card (if available)</div>
+                    </div>
+                    <div class="apply-step">
+                        <div class="number">3</div>
+                        <div>Treatment cost estimate from hospital</div>
+                    </div>
+                    <div class="apply-step">
+                        <div class="number">4</div>
+                        <div>Aadhaar card and recent photograph</div>
+                    </div>
+                </div>
+                
+                <p><strong>Contact:</strong> 022-24924000 | <strong>Website:</strong> <a href="https://cpaaindia.org" target="_blank">cpaaindia.org</a></p>
+            </div>
+        </section>
+
+        <!-- Crowdfunding -->
+        <section>
+            <h2>🌍 Crowdfunding Platforms</h2>
+            
+            <div class="scheme-card crowdfunding">
+                <h3><i class="fas fa-users"></i> Online Fundraising for Treatment</h3>
+                <p>Create a campaign on these trusted platforms:</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 25px 0;">
+                    <div class="hospital-card">
+                        <h4><i class="fas fa-rupee-sign"></i> Ketto</h4>
+                        <p>0% platform fee for medical campaigns</p>
+                        <a href="https://www.ketto.org" target="_blank" class="btn btn-primary" style="padding: 8px 15px;">
+                            Start Campaign
+                        </a>
+                    </div>
+                    <div class="hospital-card">
+                        <h4><i class="fas fa-heart"></i> Milaap</h4>
+                        <p>Largest medical crowdfunding in India</p>
+                        <a href="https://milaap.org" target="_blank" class="btn btn-primary" style="padding: 8px 15px;">
+                            Start Campaign
+                        </a>
+                    </div>
+                    <div class="hospital-card">
+                        <h4><i class="fas fa-hand-holding-usd"></i> ImpactGuru</h4>
+                        <p>Quick verification and disbursement</p>
+                        <a href="https://www.impactguru.com" target="_blank" class="btn btn-primary" style="padding: 8px 15px;">
+                            Start Campaign
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cost Calculator -->
+        <section>
+            <h2>🧮 Treatment Cost Calculator</h2>
+            
+            <div class="calculator">
+                <h3>Estimate Your Treatment Costs</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div>
+                        <label>Cancer Type:</label>
+                        <select id="cancerType">
+                            <option value="breast">Breast Cancer</option>
+                            <option value="oral">Oral Cancer</option>
+                            <option value="cervical">Cervical Cancer</option>
+                            <option value="lung">Lung Cancer</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label>Treatment Type:</label>
+                        <select id="treatmentType">
+                            <option value="surgery">Surgery Only</option>
+                            <option value="chemo">Chemotherapy</option>
+                            <option value="radiation">Radiation Therapy</option>
+                            <option value="combined">Combined Treatment</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label>Hospital Type:</label>
+                        <select id="hospitalType">
+                            <option value="government">Government Hospital</option>
+                            <option value="private">Private Hospital</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button onclick="calculateCost()" class="btn btn-primary" style="margin-top: 20px;">
+                    <i class="fas fa-calculator"></i> Calculate Estimated Cost
+                </button>
+                
+                <div id="costResult" class="calculator-result">
+                    <h4>Estimated Treatment Cost: <span id="estimatedCost">₹0</span></h4>
+                    <p id="schemeInfo"></p>
+                    <p><strong>Next Step:</strong> <a href="contact.html">Contact our financial counselors for assistance</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Section -->
+        <section style="text-align: center; margin: 50px 0;">
+            <div style="background: #2563eb; color: white; padding: 40px; border-radius: 10px;">
+                <h2 style="color: white;"><i class="fas fa-life-ring"></i> Need Help Applying?</h2>
+                <p style="font-size: 1.2rem;">Our volunteers can help you navigate the application process.</p>
+                
+                <div style="margin-top: 30px;">
+                    <a href="contact.html" class="btn" style="background: white; color: #2563eb; margin: 10px;">
+                        <i class="fas fa-user-plus"></i> Request Volunteer Help
+                    </a>
+                    <a href="tel:1800-XXX-XXXX" class="btn" style="background: #10b981; color: white; margin: 10px;">
+                        <i class="fas fa-phone"></i> Call Financial Helpline
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Seenu's Right Treatment</h3>
+                    <p>Guiding cancer patients to timely care.</p>
+                    <p>A non-profit initiative for public awareness.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="detection.html">Early Detection</a></li>
+                        <li><a href="pathway.html">Treatment Pathway</a></li>
+                        <li><a href="financial.html">Financial Help</a></li>
+                        <li><a href="find-help.html">Find Hospitals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Financial Helplines</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> PMJAY Helpline: 14555</li>
+                        <li><i class="fas fa-phone"></i> CPAA: 022-24924000</li>
+                        <li><i class="fas fa-envelope"></i> finance@seensusrighttreatment.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Seenu's Right Treatment. This website provides informational guidance only. Always consult medical professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateCost() {
+            const cancerType = document.getElementById('cancerType').value;
+            const treatmentType = document.getElementById('treatmentType').value;
+            const hospitalType = document.getElementById('hospitalType').value;
+            
+            // Base costs (in INR)
+            let baseCost = 0;
+            
+            if (hospitalType === 'government') {
+                switch(treatmentType) {
+                    case 'surgery': baseCost = 50000; break;
+                    case 'chemo': baseCost = 100000; break;
+                    case 'radiation': baseCost = 80000; break;
+                    case 'combined': baseCost = 200000; break;
+                }
+            } else {
+                switch(treatmentType) {
+                    case 'surgery': baseCost = 200000; break;
+                    case 'chemo': baseCost = 300000; break;
+                    case 'radiation': baseCost = 250000; break;
+                    case 'combined': baseCost = 600000; break;
+                }
+            }
+            
+            // Format as Indian rupees
+            const formattedCost = new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                maximumFractionDigits: 0
+            }).format(baseCost);
+            
+            // Show result
+            document.getElementById('estimatedCost').textContent = formattedCost;
+            
+            let schemeInfo = '';
+            if (hospitalType === 'government') {
+                schemeInfo = 'This treatment is likely covered under Ayushman Bharat PMJAY (up to ₹5 lakh).';
+            } else {
+                schemeInfo = 'You may need to apply for financial assistance or crowdfunding for private treatment.';
+            }
+            
+            document.getElementById('schemeInfo').textContent = schemeInfo;
+            document.getElementById('costResult').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

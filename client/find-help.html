@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Hospitals & Help - Seenu's Right Treatment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .search-box input, .search-box select {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f0f9ff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .helpline-card {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .helpline-card h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        .helpline-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .emergency-btn {
+            background: #dc2626;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        /* Search Section Styles */
+        .city-search-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7ff 100%);
+        }
+        
+        .city-search-box {
+            position: relative;
+            margin: 0 auto 30px;
+            max-width: 600px;
+        }
+        
+        .city-search-input {
+            width: 100%;
+            padding: 18px 140px 18px 25px;
+            font-size: 1.1rem;
+            border: 2px solid #2563eb;
+            border-radius: 50px;
+            outline: none;
+        }
+        
+        .city-search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .popular-cities {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .city-tag {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #475569;
+            margin: 5px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .city-tag:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        
+        .search-results-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .results-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        
+        .hospital-search-item {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2563eb;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .hospital-search-item h4 {
+            margin-top: 0;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        
+        .hospital-search-item p {
+            margin: 8px 0;
+            color: #475569;
+        }
+        
+        .hospital-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .error-message {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #b91c1c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-hand-holding-heart"></i> Seenu's Right Treatment</h1>
+                <p class="tagline">Timely care saves lives</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="detection.html">Early Detection</a></li>
+                <li><a href="pathway.html">Treatment Pathway</a></li>
+                <li><a href="financial.html">Financial Help</a></li>
+                <li><a href="find-help.html" class="active">Find Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section style="padding: 40px 0;">
+            <h1>🏥 Find Cancer Hospitals & Immediate Help</h1>
+            <p>Locate verified cancer treatment centers, emergency contacts, and support services.</p>
+            
+            <div class="helpline-card">
+                <h3><i class="fas fa-phone-alt"></i> National Cancer Helpline</h3>
+                <div class="helpline-number">1800-XXX-XXXX</div>
+                <p>24/7 free counseling and guidance</p>
+                <a href="tel:1800-XXX-XXXX" class="emergency-btn">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <div class="filters">
+            <h3>🔍 Search Hospitals</h3>
+            <div class="search-box">
+                <input type="text" id="search-hospitals" placeholder="Search by hospital name or city...">
+                <select id="filter-type">
+                    <option value="">All Hospital Types</option>
+                    <option value="Government">Government Hospital</option>
+                    <option value="Private">Private Hospital</option>
+                    <option value="Charitable">Charitable Hospital</option>
+                </select>
+                <select id="filter-state">
+                    <option value="">All States</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+            </div>
+            <div class="stats-bar">
+                <div>
+                    Showing <span id="visible-count" class="highlight">0</span> of 
+                    <span id="hospital-count">0</span> hospitals
+                </div>
+                <div id="results-count"></div>
+            </div>
+        </div>
+        
+        <!-- City Search Section -->
+        <section class="city-search-section">
+            <div class="container">
+                <h1 style="text-align: center; margin-bottom: 30px;">🔍 Find Cancer Hospitals Near You</h1>
+                
+                <div class="city-search-box">
+                    <input type="text" 
+                           id="citySearch" 
+                           class="city-search-input"
+                           placeholder="Enter your city (e.g., Tirupati, Bangalore, Mumbai)">
+                    <button onclick="searchHospitalsByCity()" class="city-search-btn">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                
+                <div class="popular-cities">
+                    <p style="color: #64748b; margin-bottom: 15px;">Popular cities:</p>
+                    <div>
+                        <button onclick="searchCity('Nellore')" class="city-tag">Nellore</button>
+                        <button onclick="searchCity('Tirupati')" class="city-tag">Tirupati</button>
+                        <button onclick="searchCity('Bangalore')" class="city-tag">Bangalore</button>
+                        <button onclick="searchCity('Mumbai')" class="city-tag">Mumbai</button>
+                        <button onclick="searchCity('Delhi')" class="city-tag">Delhi</button>
+                        <button onclick="searchCity('Chennai')" class="city-tag">Chennai</button>
+                        <button onclick="searchCity('Hyderabad')" class="city-tag">Hyderabad</button>
+                        <button onclick="searchCity('Kolkata')" class="city-tag">Kolkata</button>
+                        <button onclick="searchCity('Ahmedabad')" class="city-tag">Ahmedabad</button>
+                        <button onclick="searchCity('Pune')" class="city-tag">Pune</button>
+                    </div>
+                </div>
+                
+                <div class="search-results-container">
+                    <div id="searchResults" style="display: none;">
+                        <div class="results-card">
+                            <h3 id="resultsTitle" style="margin-top: 0; margin-bottom: 20px;"></h3>
+                            <div id="hospitalsList"></div>
+                            <div id="noResults" class="no-results" style="display: none;">
+                                <i class="fas fa-hospital" style="font-size: 3rem; color: #cbd5e1; margin-bottom: 20px;"></i>
+                                <h4>No hospitals found in this city</h4>
+                                <p>Try searching for nearby cities or check our popular cities above.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hospitals Grid -->
+        <section>
+            <h2>📋 Available Cancer Treatment Centers</h2>
+            <div id="all-hospitals" class="hospitals-grid">
+                <!-- Hospitals will load here via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Emergency Section -->
+        <section style="margin-top: 50px;">
+            <h2>🚨 Immediate Emergency Contacts</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div class="hospital-card">
+                    <h3><i class="fas fa-ambulance"></i> Ambulance</h3>
+                    <p class="helpline-number">108</p>
+                    <p>24/7 Emergency Ambulance Service</p>
+                </div>
+                <div class="hospital-card">
+                    <h3><i class="fas fa-user-md"></i> Medical Emergency</h3>
+                    <p class="helpline-number">102</p>
+                    <p>Government Medical Emergency</p>
+                </div>
+                <div class="hospital-card">
+                    <h3><i class="fas fa-headset"></i> Mental Health Support</h3>
+                    <p class="helpline-number">080-4611-0007</p>
+                    <p>Crisis Counseling & Support</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Seenu's Right Treatment</h3>
+                    <p>Guiding cancer patients to timely care.</p>
+                    <p>A non-profit initiative for public awareness.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="detection.html">Early Detection</a></li>
+                        <li><a href="pathway.html">Treatment Pathway</a></li>
+                        <li><a href="financial.html">Financial Help</a></li>
+                        <li><a href="find-help.html">Find Hospitals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Emergency Contacts</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> National Helpline: 1800-XXX-XXXX</li>
+                        <li><i class="fas fa-ambulance"></i> Ambulance: 108</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Medical Emergency: 102</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Seenu's Right Treatment. This website provides informational guidance only. Always consult medical professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ========== CITY SEARCH FUNCTIONS ==========
+        async function searchHospitalsByCity() {
+            const cityInput = document.getElementById('citySearch').value.trim();
+            if (!cityInput) {
+                alert('Please enter a city name');
+                return;
+            }
+            
+            await searchCity(cityInput);
+        }
+
+        async function searchCity(city) {
+            console.log('Searching for:', city);
+            
+            // Update search box
+            document.getElementById('citySearch').value = city;
+            
+            // Show results area
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.style.display = 'block';
+            
+            // Show loading
+            document.getElementById('hospitalsList').innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <i class="fas fa-spinner fa-spin loading-spinner" style="font-size: 2rem; color: #2563eb;"></i>
+                    <p>Searching hospitals in ${city}...</p>
+                </div>
+            `;
+            document.getElementById('noResults').style.display = 'none';
+            document.getElementById('resultsTitle').textContent = `Searching in ${city}...`;
+            
+            try {
+                // IMPORTANT: Use your server's port (5000)
+                const response = await fetch(`http://localhost:5000/api/hospitals/search/${encodeURIComponent(city)}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Search results:', data);
+                
+                if (data.success && data.hospitals && data.hospitals.length > 0) {
+                    // Show results
+                    document.getElementById('resultsTitle').textContent = `🏥 Found ${data.count} cancer hospitals in ${city}`;
+                    
+                    let html = '';
+                    data.hospitals.forEach(hospital => {
+                        html += `
+                            <div class="hospital-search-item">
+                                <h4>${hospital.name}</h4>
+                                <p><strong>Type:</strong> ${hospital.type} Hospital</p>
+                                <p><strong>Address:</strong> ${hospital.city}, ${hospital.state}</p>
+                                <p><strong>Contact:</strong> ${hospital.phone}</p>
+                                ${hospital.emergency ? `<p><strong>Emergency:</strong> ${hospital.emergency}</p>` : ''}
+                                <p><strong>Specializations:</strong> ${hospital.specializations.join(', ')}</p>
+                                <div class="hospital-actions">
+                                    <button onclick="callHospitalNumber('${hospital.phone}')" class="btn btn-primary">
+                                        <i class="fas fa-phone"></i> Call
+                                    </button>
+                                    <button onclick="getHospitalDirections('${hospital.name}, ${hospital.city}')" class="btn btn-secondary">
+                                        <i class="fas fa-map-marker-alt"></i> Directions
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    document.getElementById('hospitalsList').innerHTML = html;
+                    document.getElementById('noResults').style.display = 'none';
+                } else {
+                    // No results found
+                    document.getElementById('resultsTitle').textContent = `No hospitals found in ${city}`;
+                    document.getElementById('hospitalsList').innerHTML = '';
+                    document.getElementById('noResults').style.display = 'block';
+                }
+                
+            } catch (error) {
+                console.error('Search error:', error);
+                document.getElementById('resultsTitle').textContent = 'Error searching hospitals';
+                document.getElementById('hospitalsList').innerHTML = `
+                    <div class="error-message">
+                        <p><strong>Unable to search at the moment.</strong></p>
+                        <p>Please make sure the server is running on port 5000.</p>
+                        <p>Error: ${error.message}</p>
+                        <button onclick="searchCity('${city}')" class="city-tag" style="margin-top: 10px;">
+                            <i class="fas fa-redo"></i> Try Again
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // ========== HOSPITAL LIST FUNCTIONS ==========
+        let hospitals = [];
+
+        // Load hospitals from API
+        async function loadAllHospitals() {
+            try {
+                // IMPORTANT: Use your server's port (5000)
+                const response = await fetch('http://localhost:5000/api/hospitals');
+                hospitals = await response.json();
+                
+                displayHospitals(hospitals);
+                updateStats();
+                
+            } catch (error) {
+                console.error('Error loading hospitals:', error);
+                document.getElementById('all-hospitals').innerHTML = `
+                    <div style="text-align: center; padding: 40px;">
+                        <h3>⚠️ Unable to load hospitals</h3>
+                        <p>Please check if the server is running on port 5000.</p>
+                        <p>Showing sample hospitals for demonstration:</p>
+                    </div>
+                `;
+                
+                // Show sample data
+                hospitals = [
+                    {
+                        id: 1,
+                        name: "Tata Memorial Hospital",
+                        type: "Government",
+                        city: "Mumbai",
+                        state: "Maharashtra",
+                        phone: "022-24177000",
+                        emergency: "022-24146750",
+                        specializations: ["Oncology", "Radiation", "Surgery"],
+                        verified: true
+                    },
+                    {
+                        id: 2,
+                        name: "AIIMS Cancer Center",
+                        type: "Government",
+                        city: "Delhi",
+                        state: "Delhi",
+                        phone: "011-26588500",
+                        specializations: ["Medical Oncology", "Pediatric"],
+                        verified: true
+                    }
+                ];
+                
+                displayHospitals(hospitals);
+                updateStats();
+            }
+        }
+
+        // Display hospitals in grid
+        function displayHospitals(hospitalList) {
+            const container = document.getElementById('all-hospitals');
+            if (!container) return;
+            
+            if (hospitalList.length === 0) {
+                container.innerHTML = '<p style="text-align: center; padding: 40px;">No hospitals found matching your criteria.</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            hospitalList.forEach(hospital => {
+                const card = document.createElement('div');
+                card.className = 'hospital-card';
+                card.innerHTML = `
+                    <h3>${hospital.name}</h3>
+                    <p><strong>Type:</strong> ${hospital.type} Hospital</p>
+                    <p><strong>Location:</strong> ${hospital.city}, ${hospital.state}</p>
+                    <p><strong>Contact:</strong> ${hospital.phone}</p>
+                    ${hospital.emergency ? `<p><strong>Emergency:</strong> ${hospital.emergency}</p>` : ''}
+                    <p><strong>Specializations:</strong> ${hospital.specializations.join(', ')}</p>
+                    <div style="margin-top: 15px;">
+                        <span class="verified">${hospital.verified ? '✓ Government Verified' : 'Verification Pending'}</span>
+                    </div>
+                    <div style="margin-top: 20px; display: flex; gap: 10px;">
+                        <button onclick="callHospitalNumber('${hospital.phone}')" class="btn btn-primary" style="flex: 1;">
+                            <i class="fas fa-phone"></i> Call
+                        </button>
+                        <button onclick="getHospitalDirections('${hospital.name}, ${hospital.city}')" class="btn btn-secondary" style="flex: 1;">
+                            <i class="fas fa-map-marker-alt"></i> Directions
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter hospitals
+        function filterHospitals() {
+            const searchTerm = document.getElementById('search-hospitals').value.toLowerCase();
+            const typeFilter = document.getElementById('filter-type').value;
+            const stateFilter = document.getElementById('filter-state').value;
+            
+            const filtered = hospitals.filter(hospital => {
+                const matchesSearch = hospital.name.toLowerCase().includes(searchTerm) || 
+                                     hospital.city.toLowerCase().includes(searchTerm);
+                const matchesType = !typeFilter || hospital.type === typeFilter;
+                const matchesState = !stateFilter || hospital.state === stateFilter;
+                
+                return matchesSearch && matchesType && matchesState;
+            });
+            
+            displayHospitals(filtered);
+            updateStats(filtered.length);
+        }
+
+        // Update statistics
+        function updateStats(filteredCount = null) {
+            const total = hospitals.length;
+            const visible = filteredCount !== null ? filteredCount : total;
+            
+            document.getElementById('hospital-count').textContent = total;
+            document.getElementById('visible-count').textContent = visible;
+            
+            const resultsCount = document.getElementById('results-count');
+            if (visible === 0) {
+                resultsCount.innerHTML = '<span style="color: #dc2626;">No hospitals found</span>';
+            } else if (visible < total) {
+                resultsCount.textContent = `${visible} hospitals match your search`;
+            } else {
+                resultsCount.textContent = 'Showing all hospitals';
+            }
+        }
+
+        // ========== HELPER FUNCTIONS ==========
+        function callHospitalNumber(phone) {
+            if (confirm(`Call ${phone}?`)) {
+                window.location.href = `tel:${phone}`;
+            }
+        }
+
+        function getHospitalDirections(address) {
+            const query = encodeURIComponent(address);
+            window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+        }
+
+        // ========== INITIALIZE ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load all hospitals for the grid
+            loadAllHospitals();
+            
+            // Add event listeners for filters
+            document.getElementById('search-hospitals').addEventListener('input', filterHospitals);
+            document.getElementById('filter-type').addEventListener('change', filterHospitals);
+            document.getElementById('filter-state').addEventListener('change', filterHospitals);
+            
+            // Enable search on Enter key for city search
+            document.getElementById('citySearch').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    searchHospitalsByCity();
+                }
+            });
+            
+            // Add test button for debugging
+            const testBtn = document.createElement('button');
+            testBtn.innerHTML = '<i class="fas fa-bug"></i> Test Connection';
+            testBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: #dc2626; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 0.9rem;';
+            testBtn.onclick = async () => {
+                try {
+                    const response = await fetch('http://localhost:5000/api/hospitals');
+                    const data = await response.json();
+                    alert(`✅ Server is working! Found ${data.length} hospitals.`);
+                } catch (error) {
+                    alert(`❌ Server not responding: ${error.message}`);
+                }
+            };
+            document.body.appendChild(testBtn);
+        });
+    </script>
+</body>
+</html>

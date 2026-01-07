@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Detection - Seenu's Right Treatment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cancer-type {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #2563eb;
+        }
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .symptom-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .symptom-item.urgent {
+            background: #fee2e2;
+            border-color: #fca5a5;
+        }
+        .warning-banner {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        .self-check-guide {
+            background: #f0f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .check-step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .check-step .number {
+            background: #2563eb;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .screening-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .screening-table th {
+            background: #2563eb;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        .screening-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .screening-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-hand-holding-heart"></i> Seenu's Right Treatment</h1>
+                <p class="tagline">Timely care saves lives</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="detection.html" class="active">Early Detection</a></li>
+                <li><a href="pathway.html">Treatment Pathway</a></li>
+                <li><a href="financial.html">Financial Help</a></li>
+                <li><a href="find-help.html">Find Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section style="padding: 40px 0;">
+            <h1>🔍 Early Cancer Detection Saves Lives</h1>
+            <p>Recognizing warning signs early can increase survival rates by up to 90%. Know what to look for.</p>
+            
+            <div class="warning-banner">
+                <h3><i class="fas fa-exclamation-triangle"></i> Important Warning</h3>
+                <p><strong>If you notice any of these symptoms persisting for more than 2 weeks, consult a doctor immediately:</strong></p>
+                <ul>
+                    <li>Unexplained weight loss</li>
+                    <li>Persistent fatigue</li>
+                    <li>Unusual lumps or swelling</li>
+                    <li>Changes in bowel or bladder habits</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Common Cancers Section -->
+        <section>
+            <h2>🎯 Common Cancers & Their Early Signs</h2>
+            
+            <!-- Breast Cancer -->
+            <div class="cancer-type">
+                <h3 style="color: #ec4899;"><i class="fas fa-female"></i> Breast Cancer</h3>
+                <p><strong>Most common cancer in women. Early detection rate: 90% survival.</strong></p>
+                
+                <div class="symptoms-grid">
+                    <div class="symptom-item">
+                        <h4>Lump or Thickening</h4>
+                        <p>New lump in breast or underarm</p>
+                    </div>
+                    <div class="symptom-item">
+                        <h4>Nipple Changes</h4>
+                        <p>Inversion, discharge, or redness</p>
+                    </div>
+                    <div class="symptom-item">
+                        <h4>Skin Changes</h4>
+                        <p>Dimpling, puckering, or redness</p>
+                    </div>
+                    <div class="symptom-item urgent">
+                        <h4>🆘 Urgent</h4>
+                        <p>Any new lump - get checked within 1 week</p>
+                    </div>
+                </div>
+                
+                <div class="self-check-guide">
+                    <h4><i class="fas fa-check-circle"></i> Breast Self-Examination Guide</h4>
+                    <div class="check-step">
+                        <div class="number">1</div>
+                        <div>Visual inspection in mirror (look for changes)</div>
+                    </div>
+                    <div class="check-step">
+                        <div class="number">2</div>
+                        <div>Use pads of fingers to feel entire breast</div>
+                    </div>
+                    <div class="check-step">
+                        <div class="number">3</div>
+                        <div>Check underarms and above collarbone</div>
+                    </div>
+                    <div class="check-step">
+                        <div class="number">4</div>
+                        <div>Repeat monthly, 3-5 days after period</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oral Cancer -->
+            <div class="cancer-type">
+                <h3 style="color: #f59e0b;"><i class="fas fa-tooth"></i> Oral Cancer</h3>
+                <p><strong>Common in India due to tobacco use. Highly treatable if caught early.</strong></p>
+                
+                <div class="symptoms-grid">
+                    <div class="symptom-item">
+                        <h4>White/Red Patches</h4>
+                        <p>In mouth that don't heal</p>
+                    </div>
+                    <div class="symptom-item">
+                        <h4>Sore or Ulcer</h4>
+                        <p>Persistent for >2 weeks</p>
+                    </div>
+                    <div class="symptom-item">
+                        <h4>Difficulty Swallowing</h4>
+                        <p>Or moving tongue/jaw</p>
+                    </div>
+                    <div class="symptom-item urgent">
+                        <h4>🆘 Urgent</h4>
+                        <p>Non-healing ulcer >2 weeks - see doctor now</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cervical Cancer -->
+            <div class="cancer-type">
+                <h3 style="color: #8b5cf6;"><i class="fas fa-venus"></i> Cervical Cancer</h3>
+                <p><strong>Preventable with regular screening. HPV vaccine available.</strong></p>
+                
+                <div class="symptoms-grid">
+                    <div class="symptom-item">
+                        <h4>Abnormal Bleeding</h4>
+                        <p>Between periods or after menopause</p>
+                    </div>
+                    <div class="symptom-item">
+                        <h4>Unusual Discharge</h4>
+                        <p>Watery, bloody, or foul-smelling</p>
+                    </div>
+                    <div class="symptom-item">
+                        <h4>Pelvic Pain</h4>
+                        <p>During intercourse or otherwise</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screening Guidelines -->
+        <section>
+            <h2>📅 Recommended Screening Schedule</h2>
+            
+            <table class="screening-table">
+                <thead>
+                    <tr>
+                        <th>Cancer Type</th>
+                        <th>Who Should Screen</th>
+                        <th>When to Start</th>
+                        <th>Screening Method</th>
+                        <th>Frequency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Breast Cancer</strong></td>
+                        <td>All women</td>
+                        <td>Age 40</td>
+                        <td>Mammography</td>
+                        <td>Every 1-2 years</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cervical Cancer</strong></td>
+                        <td>Women 21-65 years</td>
+                        <td>Age 21</td>
+                        <td>Pap smear</td>
+                        <td>Every 3 years</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oral Cancer</strong></td>
+                        <td>Tobacco/alcohol users</td>
+                        <td>Age 30</td>
+                        <td>Visual examination</td>
+                        <td>Every year</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Colorectal</strong></td>
+                        <td>All adults</td>
+                        <td>Age 45</td>
+                        <td>Colonoscopy</td>
+                        <td>Every 10 years</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Action Section -->
+        <section style="margin: 50px 0; text-align: center;">
+            <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 40px; border-radius: 10px;">
+                <h2 style="color: white;">⏱️ Don't Wait, Get Checked!</h2>
+                <p style="font-size: 1.2rem;">Early detection is your best defense against cancer.</p>
+                
+                <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+                    <a href="find-help.html" class="btn" style="background: white; color: #059669;">
+                        <i class="fas fa-hospital"></i> Find Screening Centers
+                    </a>
+                    <a href="contact.html" class="btn" style="background: #2563eb; color: white;">
+                        <i class="fas fa-question-circle"></i> Ask Questions
+                    </a>
+                    <button onclick="downloadChecklist()" class="btn" style="background: #f59e0b; color: white;">
+                        <i class="fas fa-download"></i> Download Checklist
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Seenu's Right Treatment</h3>
+                    <p>Guiding cancer patients to timely care.</p>
+                    <p>A non-profit initiative for public awareness.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="detection.html">Early Detection</a></li>
+                        <li><a href="pathway.html">Treatment Pathway</a></li>
+                        <li><a href="financial.html">Financial Help</a></li>
+                        <li><a href="find-help.html">Find Hospitals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Emergency Contacts</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> National Helpline: 1800-XXX-XXXX</li>
+                        <li><i class="fas fa-ambulance"></i> Ambulance: 108</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Medical Emergency: 102</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Seenu's Right Treatment. This website provides informational guidance only. Always consult medical professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function downloadChecklist() {
+            alert('Early detection checklist will be available for download soon.');
+        }
+    </script>
+</body>
+</html>

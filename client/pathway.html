@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treatment Pathway - Seenu's Right Treatment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pathway-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+            position: relative;
+        }
+        .pathway-steps::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #2563eb;
+            z-index: 1;
+        }
+        .step {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .step-number {
+            background: #2563eb;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .step-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+        .step-content h3 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+        .time-indicator {
+            background: #10b981;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .checklist {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-hand-holding-heart"></i> Seenu's Right Treatment</h1>
+                <p class="tagline">Timely care saves lives</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="detection.html">Early Detection</a></li>
+                <li><a href="pathway.html" class="active">Treatment Pathway</a></li>
+                <li><a href="financial.html">Financial Help</a></li>
+                <li><a href="find-help.html">Find Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section style="padding: 40px 0;">
+            <h1>🗺️ Cancer Treatment Pathway</h1>
+            <p>A step-by-step guide from suspicion to survivorship. Follow these steps to ensure timely and proper treatment.</p>
+            
+            <div class="cta-box">
+                <h2 style="color: #2563eb;">⏱️ Time is Critical</h2>
+                <p>Every day matters in cancer treatment. This pathway helps you navigate the system efficiently.</p>
+                <a href="#steps" class="btn btn-primary" style="margin-top: 15px;">
+                    <i class="fas fa-play"></i> Start Your Journey
+                </a>
+            </div>
+        </section>
+
+        <!-- Pathway Steps -->
+        <section id="steps">
+            <h2>📋 Your Treatment Journey</h2>
+            <p>Follow these 7 steps in sequence for optimal treatment:</p>
+            
+            <div class="pathway-steps">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <span class="time-indicator">Within 48 hours</span>
+                        <h3><i class="fas fa-search"></i> Recognition & Consultation</h3>
+                        <p><strong>Action:</strong> If you notice persistent symptoms, consult a general physician immediately.</p>
+                        <div class="checklist">
+                            <p><strong>What to do:</strong></p>
+                            <ul>
+                                <li>Note down all symptoms and their duration</li>
+                                <li>Collect family medical history</li>
+                                <li>Consult a doctor within 48 hours of noticing symptoms</li>
+                                <li>Don't ignore or delay - early action saves lives</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <span class="time-indicator">Within 1 week</span>
+                        <h3><i class="fas fa-stethoscope"></i> Initial Tests & Diagnosis</h3>
+                        <p><strong>Action:</strong> Complete recommended tests to confirm or rule out cancer.</p>
+                        <div class="checklist">
+                            <p><strong>Common tests:</strong></p>
+                            <ul>
+                                <li>Blood tests (CBC, tumor markers)</li>
+                                <li>Imaging (Ultrasound, X-ray, CT scan)</li>
+                                <li>Biopsy (if suspicious growth found)</li>
+                                <li>Pathology report analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <span class="time-indicator">Within 2 weeks</span>
+                        <h3><i class="fas fa-user-md"></i> Specialist Consultation</h3>
+                        <p><strong>Action:</strong> Consult an oncologist (cancer specialist) with your reports.</p>
+                        <div class="checklist">
+                            <p><strong>Important:</strong></p>
+                            <ul>
+                                <li>Find a qualified oncologist near you</li>
+                                <li>Carry all test reports</li>
+                                <li>Ask about cancer type, stage, and grade</li>
+                                <li>Understand treatment options available</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <span class="time-indicator">Within 3 weeks</span>
+                        <h3><i class="fas fa-clipboard-list"></i> Treatment Planning</h3>
+                        <p><strong>Action:</strong> Develop a comprehensive treatment plan with your oncologist.</p>
+                        <div class="checklist">
+                            <p><strong>Treatment options:</strong></p>
+                            <ul>
+                                <li>Surgery (to remove tumor)</li>
+                                <li>Chemotherapy (medication)</li>
+                                <li>Radiation therapy</li>
+                                <li>Targeted therapy/Immunotherapy</li>
+                                <li>Combination of above</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <span class="time-indicator">Ongoing</span>
+                        <h3><i class="fas fa-hospital-user"></i> Treatment Phase</h3>
+                        <p><strong>Action:</strong> Begin and continue treatment as planned.</p>
+                        <div class="checklist">
+                            <p><strong>During treatment:</strong></p>
+                            <ul>
+                                <li>Follow medication schedule strictly</li>
+                                <li>Attend all therapy sessions</li>
+                                <li>Manage side effects with doctor's guidance</li>
+                                <li>Maintain nutrition and hydration</li>
+                                <li>Keep family/caregivers involved</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <span class="time-indicator">Post-treatment</span>
+                        <h3><i class="fas fa-chart-line"></i> Follow-up & Monitoring</h3>
+                        <p><strong>Action:</strong> Regular check-ups to monitor recovery and detect recurrence.</p>
+                        <div class="checklist">
+                            <p><strong>Follow-up schedule:</strong></p>
+                            <ul>
+                                <li>Regular doctor visits (every 3-6 months initially)</li>
+                                <li>Periodic scans and blood tests</li>
+                                <li>Monitor for any new symptoms</li>
+                                <li>Rehabilitation and support services</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <span class="time-indicator">Long-term</span>
+                        <h3><i class="fas fa-heart"></i> Survivorship & Prevention</h3>
+                        <p><strong>Action:</strong> Maintain healthy lifestyle and regular screenings.</p>
+                        <div class="checklist">
+                            <p><strong>Healthy practices:</strong></p>
+                            <ul>
+                                <li>Regular exercise and balanced diet</li>
+                                <li>Avoid tobacco and limit alcohol</li>
+                                <li>Manage stress and mental health</li>
+                                <li>Annual health check-ups</li>
+                                <li>Support other patients (share your story)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section style="margin: 50px 0;">
+            <h2>📚 Additional Resources</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div class="hospital-card">
+                    <h3><i class="fas fa-download"></i> Download Pathway PDF</h3>
+                    <p>Printable guide for offline reference</p>
+                    <button class="btn btn-primary" onclick="downloadPathway()" style="margin-top: 10px;">
+                        Download Guide
+                    </button>
+                </div>
+                <div class="hospital-card">
+                    <h3><i class="fas fa-calendar-check"></i> Create Treatment Calendar</h3>
+                    <p>Track appointments and medications</p>
+                    <button class="btn btn-secondary" onclick="createCalendar()" style="margin-top: 10px;">
+                        Start Calendar
+                    </button>
+                </div>
+                <div class="hospital-card">
+                    <h3><i class="fas fa-question-circle"></i> Need Help Now?</h3>
+                    <p>Talk to our cancer counselors</p>
+                    <a href="contact.html" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">
+                        Get Guidance
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Seenu's Right Treatment</h3>
+                    <p>Guiding cancer patients to timely care.</p>
+                    <p>A non-profit initiative for public awareness.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="detection.html">Early Detection</a></li>
+                        <li><a href="pathway.html">Treatment Pathway</a></li>
+                        <li><a href="financial.html">Financial Help</a></li>
+                        <li><a href="find-help.html">Find Hospitals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Emergency Contacts</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> National Helpline: 1800-XXX-XXXX</li>
+                        <li><i class="fas fa-ambulance"></i> Ambulance: 108</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Medical Emergency: 102</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Seenu's Right Treatment. This website provides informational guidance only. Always consult medical professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function downloadPathway() {
+            alert('Pathway guide will be available for download soon. For now, you can screenshot this page.');
+        }
+        
+        function createCalendar() {
+            alert('Treatment calendar feature coming soon!');
+        }
+    </script>
+</body>
+</html>

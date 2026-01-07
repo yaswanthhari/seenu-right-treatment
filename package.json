@@ -1,0 +1,28 @@
+{
+  "name": "seenu-right-treatment",
+  "version": "1.0.0",
+  "description": "Cancer Care Platform - Right Treatment at Right Time",
+  "main": "server-final.js",
+  "scripts": {
+    "start": "node server-final.js",
+    "dev": "nodemon server-final.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cancer",
+    "healthcare",
+    "treatment",
+    "india"
+  ],
+  "author": "Seenu's Right Treatment Foundation",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

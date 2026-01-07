@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survivor Stories & Blog - Seenu's Right Treatment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .story-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+        .story-image {
+            height: 200px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        .story-content {
+            padding: 25px;
+        }
+        .story-tag {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .story-quote {
+            font-style: italic;
+            color: #4b5563;
+            border-left: 3px solid #2563eb;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+        .story-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+        }
+        .category-btn {
+            padding: 10px 20px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .category-btn.active {
+            background: #2563eb;
+            color: white;
+        }
+        .share-section {
+            background: #f0f9ff;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .share-btn.facebook {
+            background: #1877f2;
+            color: white;
+        }
+        .share-btn.whatsapp {
+            background: #25d366;
+            color: white;
+        }
+        .share-btn.email {
+            background: #ea4335;
+            color: white;
+        }
+        .submit-story {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 50px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-hand-holding-heart"></i> Seenu's Right Treatment</h1>
+                <p class="tagline">Timely care saves lives</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="detection.html">Early Detection</a></li>
+                <li><a href="pathway.html">Treatment Pathway</a></li>
+                <li><a href="financial.html">Financial Help</a></li>
+                <li><a href="find-help.html">Find Help</a></li>
+                <li><a href="blog.html" class="active">Stories</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section style="padding: 40px 0; text-align: center;">
+            <h1>💪 Survivor Stories & Hope</h1>
+            <p>Real stories of courage, timely treatment, and victory over cancer. Find inspiration and hope.</p>
+        </section>
+
+        <!-- Categories -->
+        <section>
+            <h2>📖 Browse Stories by Category</h2>
+            <div class="categories">
+                <button class="category-btn active" onclick="filterStories('all')">All Stories</button>
+                <button class="category-btn" onclick="filterStories('breast')">Breast Cancer</button>
+                <button class="category-btn" onclick="filterStories('oral')">Oral Cancer</button>
+                <button class="category-btn" onclick="filterStories('early')">Early Detection</button>
+                <button class="category-btn" onclick="filterStories('financial')">Financial Journey</button>
+                <button class="category-btn" onclick="filterStories('caregiver')">Caregiver Stories</button>
+            </div>
+        </section>
+
+        <!-- Stories Grid -->
+        <section>
+            <div class="stories-grid" id="storiesContainer">
+                <!-- Story 1 -->
+                <div class="story-card" data-category="breast early">
+                    <div class="story-image">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Breast Cancer • Early Detection</span>
+                        <h3>Priya's Story: The Lump That Saved My Life</h3>
+                        <p class="story-quote">"I found a pea-sized lump during my monthly self-exam. My doctor said those 5 minutes saved my life."</p>
+                        
+                        <p><strong>Key Lesson:</strong> Monthly self-examination and immediate action when finding any abnormality.</p>
+                        
+                        <div class="story-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">Stage I</div>
+                                <div class="stat-label">Detected At</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">6</div>
+                                <div class="stat-label">Weeks to Treatment</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">5+</div>
+                                <div class="stat-label">Years Survivor</div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="readFullStory(1)" class="btn btn-primary" style="margin-top: 15px; width: 100%;">
+                            <i class="fas fa-book-open"></i> Read Full Story
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="story-card" data-category="oral financial">
+                    <div class="story-image">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Oral Cancer • Financial Assistance</span>
+                        <h3>Ramesh's Journey: From Tobacco to Triumph</h3>
+                        <p class="story-quote">"I ignored the white patch for months. When I finally went, Ayushman Bharat covered my entire treatment."</p>
+                        
+                        <p><strong>Key Lesson:</strong> Government schemes can cover full treatment costs - don't delay due to financial fear.</p>
+                        
+                        <div class="story-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">Stage II</div>
+                                <div class="stat-label">Detected At</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">₹0</div>
+                                <div class="stat-label">Out-of-pocket</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">3</div>
+                                <div class="stat-label">Years Survivor</div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="readFullStory(2)" class="btn btn-primary" style="margin-top: 15px; width: 100%;">
+                            <i class="fas fa-book-open"></i> Read Full Story
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="story-card" data-category="caregiver">
+                    <div class="story-image">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="story-content">
+                        <span class="story-tag">Caregiver Story • Support System</span>
+                        <h3>As Caregiver: My Mother's Battle Became Our Victory</h3>
+                        <p class="story-quote">"Being a caregiver taught me that timely treatment needs a team - family, doctors, and the right information."</p>
+                        
+                        <p><strong>Key Lesson:</strong> Build a support system and use all available resources for treatment navigation.</p>
+                        
+                        <div class="story-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">4</div>
+                                <div class="stat-label">Hospitals Consulted</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Support Groups Joined</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Recovery Achieved</div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="readFullStory(3)" class="btn btn-primary" style="margin-top: 15px; width: 100%;">
+                            <i class="fas fa-book-open"></i> Read Full Story
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Share Section -->
+        <section class="share-section">
+            <h2>📣 Share Your Story, Save Lives</h2>
+            <p>Your experience can guide someone through their cancer journey. Sharing creates hope and saves lives.</p>
+            
+            <div class="share-buttons">
+                <button class="share-btn facebook" onclick="shareOnFacebook()">
+                    <i class="fab fa-facebook-f"></i> Share on Facebook
+                </button>
+                <button class="share-btn whatsapp" onclick="shareOnWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> Share on WhatsApp
+                </button>
+                <button class="share-btn email" onclick="shareByEmail()">
+                    <i class="fas fa-envelope"></i> Share by Email
+                </button>
+            </div>
+        </section>
+
+        <!-- Submit Your Story -->
+        <section class="submit-story">
+            <h2 style="color: white;">✍️ Share Your Victory</h2>
+            <p>Your story could be the hope someone needs today. Share your cancer journey to inspire others.</p>
+            
+            <div style="margin-top: 30px;">
+                <button onclick="submitStory()" class="btn" style="background: white; color: #059669; padding: 15px 40px;">
+                    <i class="fas fa-pen-fancy"></i> Submit Your Story
+                </button>
+                <p style="margin-top: 15px; font-size: 0.9rem;">We respect your privacy. You can choose to share anonymously.</p>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section style="margin: 50px 0;">
+            <h2>📚 More Resources</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div class="hospital-card">
+                    <h3><i class="fas fa-film"></i> Video Stories</h3>
+                    <p>Watch survivor interviews and treatment journeys</p>
+                    <button class="btn btn-secondary" onclick="watchVideos()" style="margin-top: 10px;">
+                        Watch Videos
+                    </button>
+                </div>
+                
+                <div class="hospital-card">
+                    <h3><i class="fas fa-book-medical"></i> Treatment Diaries</h3>
+                    <p>Day-by-day accounts of treatment experiences</p>
+                    <button class="btn btn-secondary" onclick="readDiaries()" style="margin-top: 10px;">
+                        Read Diaries
+                    </button>
+                </div>
+                
+                <div class="hospital-card">
+                    <h3><i class="fas fa-comments"></i> Support Groups</h3>
+                    <p>Connect with others on similar journeys</p>
+                    <a href="contact.html" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">
+                        Join Group
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Seenu's Right Treatment</h3>
+                    <p>Guiding cancer patients to timely care.</p>
+                    <p>Hope through shared experiences.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Story Categories</h4>
+                    <ul>
+                        <li><a href="javascript:filterStories('breast')">Breast Cancer Stories</a></li>
+                        <li><a href="javascript:filterStories('oral')">Oral Cancer Stories</a></li>
+                        <li><a href="javascript:filterStories('early')">Early Detection Stories</a></li>
+                        <li><a href="javascript:filterStories('financial')">Financial Journey Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Share Your Story</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> stories@seensusrighttreatment.org</li>
+                        <li><i class="fas fa-phone"></i> Story Helpline: +91-XXXX-XXXXXX</li>
+                        <li><i class="fas fa-share-alt"></i> Share to inspire others</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Seenu's Right Treatment. These stories are shared with consent to provide hope and guidance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter stories by category
+        function filterStories(category) {
+            const stories = document.querySelectorAll('.story-card');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            // Update active button
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(category) || 
+                    (category === 'all' && btn.textContent === 'All Stories')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Show/hide stories
+            stories.forEach(story => {
+                if (category === 'all' || story.dataset.category.includes(category)) {
+                    story.style.display = 'block';
+                } else {
+                    story.style.display = 'none';
+                }
+            });
+        }
+        
+        // Read full story
+        function readFullStory(storyId) {
+            const stories = [
+                {
+                    title: "Priya's Story: The Lump That Saved My Life",
+                    content: `Priya, a 42-year-old teacher from Pune, discovered a small lump during her regular self-examination. Despite initial fear, she consulted a doctor within 48 hours. Diagnosed with Stage I breast cancer, she underwent surgery followed by radiation. Today, 5 years cancer-free, she advocates for monthly self-exams. "That 5-minute check saved my life. Don't ignore any changes in your body," she says.`
+                },
+                {
+                    title: "Ramesh's Journey: From Tobacco to Triumph",
+                    content: `Ramesh, a 55-year-old auto driver from Chennai, had been chewing tobacco for 30 years. When white patches appeared in his mouth, he ignored them for 6 months. Finally, his daughter insisted on a check-up. Diagnosed with Stage II oral cancer, he qualified for Ayushman Bharat which covered his ₹3 lakh treatment. Now tobacco-free for 3 years, he warns others: "Don't wait like I did. Government schemes can save your life without financial burden."`
+                },
+                {
+                    title: "As Caregiver: My Mother's Battle Became Our Victory",
+                    content: `When 65-year-old Mrs. Sharma was diagnosed with ovarian cancer, her daughter Anjali became her primary caregiver. "The emotional toll was huge, but finding the right support groups and connecting with other caregivers saved us," Anjali shares. They navigated 4 different hospitals, multiple opinions, and complex treatment protocols. "Cancer treatment is a team sport. Build your team early - doctors, counselors, family, and fellow patients." Today, Mrs. Sharma is in complete remission.`
+                }
+            ];
+            
+            const story = stories[storyId - 1];
+            if (story) {
+                alert(`${story.title}\n\n${story.content}\n\n---\nShare this story to spread hope!`);
+            }
+        }
+        
+        // Share functions
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Inspiring cancer survivor stories on Seenu's Right Treatment");
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
+        }
+        
+        function shareOnWhatsApp() {
+            const text = encodeURIComponent("Check out these inspiring cancer survivor stories: " + window.location.href);
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        }
+        
+        function shareByEmail() {
+            const subject = encodeURIComponent("Inspiring Cancer Survivor Stories");
+            const body = encodeURIComponent(`I found these inspiring stories on Seenu's Right Treatment website:\n\n${window.location.href}\n\nThese stories give hope and guidance to cancer patients.`);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+        
+        function submitStory() {
+            window.location.href = 'contact.html?type=story';
+        }
+        
+        function watchVideos() {
+            alert('Video stories section coming soon! In the meantime, check YouTube for cancer survivor stories.');
+        }
+        
+        function readDiaries() {
+            alert('Treatment diaries will be available soon. Check back next month!');
+        }
+    </script>
+</body>
+</html>

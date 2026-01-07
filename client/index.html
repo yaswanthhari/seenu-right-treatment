@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seenu's Right Treatment - Timely Cancer Care</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero .container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero h1 span.highlight {
+            color: #fbbf24;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-buttons .btn {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hero-buttons .btn-primary {
+            background: white;
+            color: #2563eb;
+        }
+        
+        .hero-buttons .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .urgent-alert {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #fbbf24;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 600px;
+        }
+        
+        .urgent-alert i {
+            color: #fbbf24;
+            font-size: 1.5rem;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+        
+        .mission h2 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 50px;
+        }
+        
+        .mission-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .mission-text {
+            flex: 2;
+        }
+        
+        .mission-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #5f6975;
+        }
+        
+        blockquote {
+            border-left: 4px solid #10b981;
+            padding-left: 25px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        .mission-stats {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .stat {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-top: 5px solid #2563eb;
+        }
+        
+        .stat h3 {
+            font-size: 3rem;
+            color: #2563eb;
+            margin: 10px 0;
+        }
+        
+        .stat p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .quick-links h2 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 60px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        @media (max-width: 1200px) {
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .link-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #1e293b;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 5px solid transparent;
+            display: block;
+            text-align: center;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-top-color: #2563eb;
+        }
+        
+        .link-icon {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 25px;
+        }
+        
+        .link-card h3 {
+            margin-bottom: 15px;
+            color: #1e293b;
+            font-size: 1.4rem;
+        }
+        
+        .link-card p {
+            color: #607087;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Featured Hospitals */
+        .featured-hospitals {
+            padding: 100px 0;
+            background: #f0f9ff;
+        }
+        
+        .featured-hospitals h2 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+        }
+        
+        .hospitals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        @media (max-width: 1200px) {
+            .hospitals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hospitals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .hospital-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 5px solid #2563eb;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .hospital-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .hospital-card h3 {
+            color: #2563eb;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            min-height: 70px;
+        }
+        
+        .hospital-card p {
+            margin: 12px 0;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+        
+        .hospital-card strong {
+            color: #1e293b;
+        }
+        
+        .verified {
+            background: #10b981;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        .center-button {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .center-button .btn {
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+        }
+        
+        /* Responsive Hero */
+        @media (max-width: 992px) {
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .mission-content {
+                flex-direction: column;
+            }
+            
+            .mission-stats {
+                flex-direction: row;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .mission-stats {
+                flex-direction: column;
+            }
+            
+            .stat h3 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3, .footer-section h4 {
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .footer-section p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .contacts li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        
+        .contacts i {
+            color: #10b981;
+            width: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 30px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-hand-holding-heart"></i> Seenu's Right Treatment</h1>
+                <p class="tagline">Timely care saves lives</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="problem.html">The Problem</a></li>
+                <li><a href="detection.html">Early Detection</a></li>
+                <li><a href="pathway.html">Treatment Pathway</a></li>
+                <li><a href="financial.html">Financial Help</a></li>
+                <li><a href="find-help.html">Find Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Right Treatment.<br><span class="highlight">Right Time.</span></h1>
+                <p>Every cancer journey needs timely steps. We guide patients from suspicion to survivorship with clear, actionable information.</p>
+                
+                <div class="hero-buttons">
+                    <a href="detection.html" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Know Early Signs
+                    </a>
+                    <a href="pathway.html" class="btn btn-secondary">
+                        <i class="fas fa-map-signs"></i> Treatment Pathway
+                    </a>
+                </div>
+                
+                <div class="urgent-alert">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <strong>Suspicious symptoms?</strong> Consult a doctor within 48 hours.
+                        <a href="find-help.html" style="color: white; font-weight: bold; margin-left: 10px;">
+                            Get Immediate Guidance →
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 30px; border-radius: 20px; text-align: center;">
+                    <i class="fas fa-heartbeat" style="font-size: 4rem; color: white; margin-bottom: 20px;"></i>
+                    <h3 style="color: white; margin-bottom: 10px;">Timely Cancer Care</h3>
+                    <p style="color: rgba(255,255,255,0.9);">Guiding patients to right treatment at right time</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <h2>In Memory of Srinivas</h2>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <p>This initiative was born from a painful loss — the passing of a beloved brother to cancer, when timely treatment could have made a difference.</p>
+                    <p>We transform that grief into guidance, ensuring others don't face the same delays in diagnosis and treatment.</p>
+                    <blockquote>
+                        "When time matters most, information shouldn't be a barrier."
+                    </blockquote>
+                </div>
+                <div class="mission-stats">
+                    <div class="stat">
+                        <h3>2 Minutes</h3>
+                        <p>Someone in India is diagnosed with cancer</p>
+                    </div>
+                    <div class="stat">
+                        <h3>60%</h3>
+                        <p>Cases detected at advanced stages</p>
+                    </div>
+                    <div class="stat">
+                        <h3>40%</h3>
+                        <p>Could be saved with early detection</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <h2>Start Your Journey Here</h2>
+            <div class="links-grid">
+                <a href="detection.html" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Early Detection Guide</h3>
+                    <p>Know warning signs and self-examination methods for common cancers</p>
+                </a>
+                
+                <a href="pathway.html" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Step-by-Step Pathway</h3>
+                    <p>From symptoms to treatment: what to do next at each stage</p>
+                </a>
+                
+                <a href="financial.html" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>Financial Assistance</h3>
+                    <p>Government schemes, insurance, NGO support and crowdfunding</p>
+                </a>
+                
+                <a href="find-help.html" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>Find Hospitals & Helplines</h3>
+                    <p>Verified cancer centers and emergency support numbers</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Hospitals -->
+    <section class="featured-hospitals">
+        <div class="container">
+            <h2>🏥 Featured Cancer Hospitals</h2>
+            
+            <div class="hospitals-grid" id="hospitals-container">
+                <!-- Hospital 1 -->
+                <div class="hospital-card">
+                    <h3>Tata Memorial Hospital</h3>
+                    <p><strong>📍 Location:</strong> Mumbai, Maharashtra</p>
+                    <p><strong>📞 Contact:</strong> 022-24177000</p>
+                    <p><strong>🏥 Type:</strong> Government Hospital</p>
+                    <p><strong>Emergency:</strong> 022-24146750</p>
+                    <p><strong>Specializations:</strong> Oncology, Radiation Therapy, Surgical Oncology</p>
+                    <span class="verified">✓ Government Verified</span>
+                    <div style="margin-top: 25px; display: flex; gap: 10px;">
+                        <button onclick="callHospital('02224177000')" class="btn btn-primary" style="flex: 1; padding: 12px;">
+                            <i class="fas fa-phone"></i> Call
+                        </button>
+                        <button onclick="showDirections('Tata Memorial Hospital, Mumbai')" class="btn btn-secondary" style="flex: 1; padding: 12px;">
+                            <i class="fas fa-map-marker-alt"></i> Directions
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Hospital 2 -->
+                <div class="hospital-card">
+                    <h3>AIIMS Cancer Center</h3>
+                    <p><strong>📍 Location:</strong> Delhi, Delhi</p>
+                    <p><strong>📞 Contact:</strong> 011-26588500</p>
+                    <p><strong>🏥 Type:</strong> Government Hospital</p>
+                    <p><strong>Emergency:</strong> 011-26594404</p>
+                    <p><strong>Specializations:</strong> Medical Oncology, Pediatric Oncology</p>
+                    <span class="verified">✓ Government Verified</span>
+                    <div style="margin-top: 25px; display: flex; gap: 10px;">
+                        <button onclick="callHospital('01126588500')" class="btn btn-primary" style="flex: 1; padding: 12px;">
+                            <i class="fas fa-phone"></i> Call
+                        </button>
+                        <button onclick="showDirections('AIIMS Cancer Center, Delhi')" class="btn btn-secondary" style="flex: 1; padding: 12px;">
+                            <i class="fas fa-map-marker-alt"></i> Directions
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Hospital 3 -->
+                <div class="hospital-card">
+                    <h3>Apollo Cancer Institute</h3>
+                    <p><strong>📍 Location:</strong> Chennai, Tamil Nadu</p>
+                    <p><strong>📞 Contact:</strong> 044-28203333</p>
+                    <p><strong>🏥 Type:</strong> Private Hospital</p>
+                    <p><strong>Emergency:</strong> 044-28290222</p>
+                    <p><strong>Specializations:</strong> All Cancer Types, Bone Marrow Transplant</p>
+                    <span class="verified">✓ Government Verified</span>
+                    <div style="margin-top: 25px; display: flex; gap: 10px;">
+                        <button onclick="callHospital('04428203333')" class="btn btn-primary" style="flex: 1; padding: 12px;">
+                            <i class="fas fa-phone"></i> Call
+                        </button>
+                        <button onclick="showDirections('Apollo Cancer Institute, Chennai')" class="btn btn-secondary" style="flex: 1; padding: 12px;">
+                            <i class="fas fa-map-marker-alt"></i> Directions
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="center-button">
+                <a href="find-help.html" class="btn btn-primary">
+                    <i class="fas fa-hospital"></i> View All Hospitals →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Seenu's Right Treatment</h3>
+                    <p>Guiding cancer patients to timely care since 2025.</p>
+                    <p>A non-profit initiative for public awareness.</p>
+                    <p>In memory of Seenu and all those lost to delayed treatment.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="detection.html">Early Detection</a></li>
+                        <li><a href="pathway.html">Treatment Pathway</a></li>
+                        <li><a href="financial.html">Financial Help</a></li>
+                        <li><a href="find-help.html">Find Hospitals</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Emergency Contacts</h4>
+                    <ul class="contacts">
+                        <li><i class="fas fa-phone"></i> National Cancer Helpline: 1800-XXX-XXXX</li>
+                        <li><i class="fas fa-ambulance"></i> Medical Emergency: 108</li>
+                        <li><i class="fas fa-envelope"></i> help@seensusrighttreatment.org</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Support Available</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Seenu's Right Treatment. This website provides informational guidance only. Always consult medical professionals for diagnosis and treatment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Hospital functions
+        function callHospital(phone) {
+            if (confirm(`Call ${phone}?`)) {
+                window.location.href = `tel:${phone}`;
+            }
+        }
+        
+        function showDirections(address) {
+            const query = encodeURIComponent(address);
+            window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+        }
+        
+        // Load dynamic hospital data if API is available
+        async function loadHospitals() {
+            try {
+                const response = await fetch('/api/hospitals');
+                const hospitals = await response.json();
+                
+                const container = document.getElementById('hospitals-container');
+                if (!container || hospitals.length === 0) return;
+                
+                container.innerHTML = '';
+                
+                hospitals.slice(0, 3).forEach(hospital => {
+                    const card = document.createElement('div');
+                    card.className = 'hospital-card';
+                    card.innerHTML = `
+                        <h3>${hospital.name}</h3>
+                        <p><strong>📍 Location:</strong> ${hospital.city}, ${hospital.state}</p>
+                        <p><strong>📞 Contact:</strong> ${hospital.phone}</p>
+                        <p><strong>🏥 Type:</strong> ${hospital.type} Hospital</p>
+                        ${hospital.emergency ? `<p><strong>Emergency:</strong> ${hospital.emergency}</p>` : ''}
+                        <p><strong>Specializations:</strong> ${hospital.specializations.join(', ')}</p>
+                        <span class="verified">${hospital.verified ? '✓ Government Verified' : 'Verification Pending'}</span>
+                        <div style="margin-top: 25px; display: flex; gap: 10px;">
+                            <button onclick="callHospital('${hospital.phone}')" class="btn btn-primary" style="flex: 1; padding: 12px;">
+                                <i class="fas fa-phone"></i> Call
+                            </button>
+                            <button onclick="showDirections('${hospital.name}, ${hospital.city}')" class="btn btn-secondary" style="flex: 1; padding: 12px;">
+                                <i class="fas fa-map-marker-alt"></i> Directions
+                            </button>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+                
+            } catch (error) {
+                console.log('Using static hospital data');
+                // Static data is already in HTML
+            }
+        }
+        
+        // Load patient statistics
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/patients');
+                const patients = await response.json();
+                
+                // Update any stats elements if needed
+                const statsElements = document.querySelectorAll('.stat h3');
+                if (statsElements.length >= 3) {
+                    // Update first stat with patient count
+                    statsElements[0].textContent = patients.length;
+                    statsElements[0].nextElementSibling.textContent = 'Patients we\'re helping';
+                }
+                
+            } catch (error) {
+                console.log('Using static statistics');
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHospitals();
+            loadStats();
+        });
+    </script>
+</body>
+</html>
