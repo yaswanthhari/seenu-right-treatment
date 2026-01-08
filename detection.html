@@ -513,9 +513,70 @@
     </footer>
 
     <script>
-        function downloadChecklist() {
-            alert('Early detection checklist will be available for download soon.');
-        }
-    </script>
+    function downloadChecklist() {
+        // Create a simple checklist text file
+        const checklistContent = `Cancer Early Detection Checklist
+========================================
+Seenu's Right Treatment Foundation
+Timely care saves lives
+
+⚠️ WARNING SIGNS (Check if present >2 weeks):
+□ Unexplained weight loss (5+ kg/month)
+□ Persistent fatigue
+□ Unusual lumps or swelling
+□ Changes in bowel/bladder habits
+□ Persistent cough/hoarseness
+□ Difficulty swallowing
+□ Unexplained bleeding/bruising
+□ Non-healing sores/ulcers
+
+📅 SCREENING SCHEDULE:
+- Breast Cancer: Mammogram at 40+, then 1-2 yearly
+- Cervical Cancer: Pap smear at 21+, every 3 years
+- Prostate Cancer: PSA test at 50+, yearly
+- Colorectal: Colonoscopy at 45+, every 10 years
+- Oral Cancer: Dental check at 30+, yearly
+- Lung Cancer: Low-dose CT for smokers 50+
+
+❗ ACTION NEEDED:
+If 3+ symptoms checked → See doctor within 1 week
+If any urgent symptom → See doctor immediately
+
+📞 Emergency: Ambulance 108 | Medical 102
+🌐 Website: https://yaswanthhari.github.io/seenu-right-treatment/
+
+Print Date: ${new Date().toLocaleDateString()}`;
+        
+        // Create download link
+        const blob = new Blob([checklistContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Cancer-Early-Detection-Checklist.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        alert('✅ Checklist downloaded! Print it and take to your doctor.');
+    }
+</script>
+    <script>
+        // Dynamic CSS Injection for responsiveness
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @media (max-width: 768px) {
+                .symptoms-grid {
+                    grid-template-columns: 1fr !important;
+                }
+                .check-step {
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                }
+            }
+        `;
+
+    </script>   
+       
 </body>
 </html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cancer Early Detection Checklist - Seenu's Right Treatment</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 30px; }
+        .checklist { max-width: 800px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .section { margin-bottom: 30px; page-break-inside: avoid; }
+        .symptoms-list { margin: 15px 0; padding-left: 20px; }
+        .checkbox { margin-right: 10px; }
+        .urgent { color: #dc2626; font-weight: bold; }
+        .footer { margin-top: 50px; text-align: center; font-size: 0.9rem; color: #666; }
+        @media print {
+            .no-print { display: none; }
+            body { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="checklist">
+        <div class="header">
+            <h1>🔍 Cancer Early Detection Checklist</h1>
+            <p><strong>Seenu's Right Treatment Foundation</strong></p>
+            <p>Timely care saves lives | Download Date: $(date +"%d-%m-%Y")</p>
+        </div>
+        
+        <div class="section">
+            <h2>📝 Patient Information</h2>
+            <p>Name: ___________________________</p>
+            <p>Age: _______ Gender: □ Male □ Female</p>
+            <p>Date: ___________________________</p>
+        </div>
+        
+        <div class="section">
+            <h2>⚠️ Warning Signs Checklist</h2>
+            <p><strong>Check any symptoms you have experienced for more than 2 weeks:</strong></p>
+            <div class="symptoms-list">
+                <p><input type="checkbox" class="checkbox"> Unexplained weight loss (more than 5kg in a month)</p>
+                <p><input type="checkbox" class="checkbox"> Persistent fatigue not relieved by rest</p>
+                <p><input type="checkbox" class="checkbox"> Unusual lumps or swelling anywhere in body</p>
+                <p><input type="checkbox" class="checkbox"> Changes in bowel or bladder habits</p>
+                <p><input type="checkbox" class="checkbox"> Persistent cough or hoarseness</p>
+                <p><input type="checkbox" class="checkbox"> Difficulty swallowing</p>
+                <p><input type="checkbox" class="checkbox"> Unexplained bleeding or bruising</p>
+                <p><input type="checkbox" class="checkbox"> Non-healing sores or ulcers</p>
+                <p><input type="checkbox" class="checkbox"> Changes in skin moles (size, color, shape)</p>
+                <p><input type="checkbox" class="checkbox"> Persistent indigestion or discomfort after eating</p>
+            </div>
+            <p class="urgent">❗ If you checked 3 or more items, consult a doctor within 1 week.</p>
+        </div>
+        
+        <div class="section">
+            <h2>👨‍⚕️ For Men</h2>
+            <div class="symptoms-list">
+                <p><input type="checkbox" class="checkbox"> Testicular lumps or swelling</p>
+                <p><input type="checkbox" class="checkbox"> Changes in urinary habits (frequency, flow)</p>
+                <p><input type="checkbox" class="checkbox"> Blood in urine or semen</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>👩‍⚕️ For Women</h2>
+            <div class="symptoms-list">
+                <p><input type="checkbox" class="checkbox"> Breast lumps or thickening</p>
+                <p><input type="checkbox" class="checkbox"> Nipple changes or discharge</p>
+                <p><input type="checkbox" class="checkbox"> Abnormal vaginal bleeding</p>
+                <p><input type="checkbox" class="checkbox"> Pelvic pain or pressure</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📅 Screening Schedule Reminder</h2>
+            <table border="1" cellpadding="8" cellspacing="0" width="100%">
+                <tr>
+                    <th>Cancer Type</th>
+                    <th>Recommended Age</th>
+                    <th>Next Due Date</th>
+                </tr>
+                <tr><td>Breast Cancer</td><td>40+ years</td><td>__________________</td></tr>
+                <tr><td>Cervical Cancer</td><td>21-65 years</td><td>__________________</td></tr>
+                <tr><td>Prostate Cancer</td><td>50+ years</td><td>__________________</td></tr>
+                <tr><td>Colorectal Cancer</td><td>45+ years</td><td>__________________</td></tr>
+                <tr><td>Oral Cancer Check</td><td>30+ years</td><td>__________________</td></tr>
+                <tr><td>Skin Check</td><td>Any age</td><td>__________________</td></tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>📋 Doctor Visit Preparation</h2>
+            <p><input type="checkbox" class="checkbox"> List all symptoms with dates started</p>
+            <p><input type="checkbox" class="checkbox"> Note family cancer history</p>
+            <p><input type="checkbox" class="checkbox"> Prepare questions for doctor</p>
+            <p><input type="checkbox" class="checkbox"> Bring previous medical reports</p>
+            <p><input type="checkbox" class="checkbox"> Note all medications currently taking</p>
+        </div>
+        
+        <div class="footer">
+            <p>💡 <strong>Remember:</strong> Early detection increases survival rates by up to 90%</p>
+            <p>📞 Emergency Contacts: Ambulance - 108 | Medical Emergency - 102</p>
+            <p>📍 Seenu'\''s Right Treatment Foundation | www.seenu-right-treatment.org</p>
+            <button onclick="window.print()" class="no-print" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 5px; margin-top: 20px;">
+                🖨️ Print This Checklist
+            </button>
+        </div>
+    </div>
+</body>
+</html>
