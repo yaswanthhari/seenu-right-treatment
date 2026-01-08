@@ -472,8 +472,8 @@
                         <i class="fas fa-question-circle"></i> Ask Questions
                     </a>
                     <button onclick="downloadChecklist()" class="btn" style="background: #f59e0b; color: white;">
-                        <i class="fas fa-download"></i> Download Checklist
-                    </button>
+                     <i class="fas fa-file-download"></i> Download & Print Checklist
+                     </button>
                 </div>
             </div>
         </section>
@@ -514,51 +514,155 @@
 
     <script>
     function downloadChecklist() {
-        // Create a simple checklist text file
-        const checklistContent = `Cancer Early Detection Checklist
-========================================
-Seenu's Right Treatment Foundation
-Timely care saves lives
-
-⚠️ WARNING SIGNS (Check if present >2 weeks):
-□ Unexplained weight loss (5+ kg/month)
-□ Persistent fatigue
-□ Unusual lumps or swelling
-□ Changes in bowel/bladder habits
-□ Persistent cough/hoarseness
-□ Difficulty swallowing
-□ Unexplained bleeding/bruising
-□ Non-healing sores/ulcers
-
-📅 SCREENING SCHEDULE:
-- Breast Cancer: Mammogram at 40+, then 1-2 yearly
-- Cervical Cancer: Pap smear at 21+, every 3 years
-- Prostate Cancer: PSA test at 50+, yearly
-- Colorectal: Colonoscopy at 45+, every 10 years
-- Oral Cancer: Dental check at 30+, yearly
-- Lung Cancer: Low-dose CT for smokers 50+
-
-❗ ACTION NEEDED:
-If 3+ symptoms checked → See doctor within 1 week
-If any urgent symptom → See doctor immediately
-
-📞 Emergency: Ambulance 108 | Medical 102
-🌐 Website: https://yaswanthhari.github.io/seenu-right-treatment/
-
-Print Date: ${new Date().toLocaleDateString()}`;
+        // Get current date in proper format
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString('en-IN', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
         
-        // Create download link
-        const blob = new Blob([checklistContent], { type: 'text/plain' });
+        // Create comprehensive checklist content
+        const checklistContent = `╔══════════════════════════════════════════════════════╗
+║        CANCER EARLY DETECTION CHECKLIST         ║
+║        Seenu's Right Treatment Foundation       ║
+║           "Timely care saves lives"             ║
+╚══════════════════════════════════════════════════════╝
+
+════════════════════════════════════════════════════════
+PATIENT INFORMATION:
+────────────────────────────────────────────────────────
+Name: __________________________________________________
+Age: _____   Gender: □ Male  □ Female  □ Other
+Date: ${formattedDate}
+Contact: _______________________________________________
+
+════════════════════════════════════════════════════════
+⚠️ WARNING SIGNS (Check if present >2 weeks):
+────────────────────────────────────────────────────────
+□ Unexplained weight loss (5+ kg in a month)
+□ Persistent fatigue not relieved by rest
+□ Unusual lumps or swelling anywhere in body
+□ Changes in bowel or bladder habits
+□ Persistent cough or hoarseness (>3 weeks)
+□ Difficulty swallowing
+□ Unexplained bleeding or bruising
+□ Non-healing sores or ulcers
+□ Changes in skin moles (size, color, shape)
+□ Persistent indigestion or abdominal pain
+
+════════════════════════════════════════════════════════
+👨 FOR MEN:
+────────────────────────────────────────────────────────
+□ Testicular lumps or swelling
+□ Changes in urinary habits (frequency, weak flow)
+□ Blood in urine or semen
+□ Erectile dysfunction (new onset)
+
+════════════════════════════════════════════════════════
+👩 FOR WOMEN:
+────────────────────────────────────────────────────────
+□ Breast lumps or thickening
+□ Nipple changes or discharge
+□ Abnormal vaginal bleeding
+□ Pelvic pain or pressure
+□ Changes in menstrual cycle
+
+════════════════════════════════════════════════════════
+📅 RECOMMENDED SCREENING SCHEDULE:
+────────────────────────────────────────────────────────
+┌─────────────────┬─────────────┬─────────────────────┐
+│   Cancer Type   │ Start Age   │     Frequency       │
+├─────────────────┼─────────────┼─────────────────────┤
+│ Breast Cancer   │ 40 years    │ Every 1-2 years     │
+│ Cervical Cancer │ 21 years    │ Every 3 years       │
+│ Prostate Cancer │ 50 years    │ Yearly              │
+│ Colorectal      │ 45 years    │ Every 10 years      │
+│ Oral Cancer     │ 30 years*   │ Yearly              │
+│ Lung Cancer     │ 50 years**  │ Yearly              │
+│ Skin Cancer     │ Any age     │ Self-check monthly  │
+└─────────────────┴─────────────┴─────────────────────┘
+*For tobacco/alcohol users | **For heavy smokers
+
+════════════════════════════════════════════════════════
+📋 MY SCREENING TRACKER:
+────────────────────────────────────────────────────────
+Last Breast Exam: ___________________ Next Due: ________
+Last Pap Smear: _____________________ Next Due: ________
+Last PSA Test: ______________________ Next Due: ________
+Last Colonoscopy: ___________________ Next Due: ________
+Last Dental Check: __________________ Next Due: ________
+
+════════════════════════════════════════════════════════
+❗ ACTION NEEDED:
+────────────────────────────────────────────────────────
+○ If 0-2 symptoms → Regular health check
+○ If 3+ symptoms → See doctor within 1 WEEK
+○ URGENT SYMPTOMS (see immediately):
+  • Coughing blood
+  • Blood in stool/urine
+  • Sudden severe pain
+  • Difficulty breathing
+  • Sudden vision changes
+
+════════════════════════════════════════════════════════
+📝 DOCTOR VISIT PREPARATION:
+────────────────────────────────────────────────────────
+□ List symptoms with dates started
+□ Note family cancer history:
+  - __________________________________________________
+  - __________________________________________________
+□ Questions for doctor:
+  1. ________________________________________________
+  2. ________________________________________________
+  3. ________________________________________________
+□ Bring previous medical reports
+□ List current medications
+
+════════════════════════════════════════════════════════
+📞 EMERGENCY CONTACTS:
+────────────────────────────────────────────────────────
+• Ambulance: 108
+• Medical Emergency: 102
+• National Cancer Helpline: 1800-XXX-XXXX
+• My Doctor: ___________________ (___________)
+• Emergency Contact: ___________ (___________)
+
+════════════════════════════════════════════════════════
+🌐 RESOURCES:
+────────────────────────────────────────────────────────
+Website: https://yaswanthhari.github.io/seenu-right-treatment/
+Find Hospitals: /find-help.html
+Contact: /contact.html
+
+════════════════════════════════════════════════════════
+💡 IMPORTANT NOTES:
+────────────────────────────────────────────────────────
+1. Early detection increases survival rates by up to 90%
+2. Regular screening saves lives
+3. Don't ignore persistent symptoms
+4. Share family history with your doctor
+5. Maintain healthy lifestyle: no tobacco, balanced diet, exercise
+
+════════════════════════════════════════════════════════
+"Your health is your wealth. Get checked today!"
+════════════════════════════════════════════════════════
+Generated on: ${formattedDate}
+© Seenu's Right Treatment Foundation - Non-profit initiative`;
+
+        // Create and trigger download
+        const blob = new Blob([checklistContent], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'Cancer-Early-Detection-Checklist.txt';
+        a.download = `Cancer-Early-Detection-Checklist-${formattedDate.replace(/\//g, '-')}.txt`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
         
-        alert('✅ Checklist downloaded! Print it and take to your doctor.');
+        // Show success message
+        alert('✅ Cancer Early Detection Checklist downloaded!\n\nSave this file, print it, and take it to your doctor.\nIt contains:\n• Symptom checklist\n• Screening schedule\n• Doctor visit preparation\n• Emergency contacts');
     }
 </script>
     <script>
