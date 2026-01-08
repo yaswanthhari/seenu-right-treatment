@@ -514,157 +514,251 @@
 
     <script>
     function downloadChecklist() {
-        // Get current date in proper format
-        const today = new Date();
-        const formattedDate = today.toLocaleDateString('en-IN', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-        });
-        
-        // Create comprehensive checklist content
-        const checklistContent = `╔══════════════════════════════════════════════════════╗
-║        CANCER EARLY DETECTION CHECKLIST         ║
-║        Seenu's Right Treatment Foundation       ║
-║           "Timely care saves lives"             ║
-╚══════════════════════════════════════════════════════╝
+    // Get current date in proper format
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-IN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    
+    // Create comprehensive checklist content with enhancements
+    const checklistContent = `╔════════════════════════════════════════════════════════════════════╗
+║               CANCER EARLY DETECTION & RISK ASSESSMENT CHECKLIST        ║
+║               Seenu's Right Treatment Foundation                        ║
+║                      "Timely care saves lives"                          ║
+╚════════════════════════════════════════════════════════════════════╝
 
-════════════════════════════════════════════════════════
-PATIENT INFORMATION:
-────────────────────────────────────────────────────────
+════════════════════════════════════════════════════════════════════════
+👤 PATIENT INFORMATION & RISK ASSESSMENT:
+────────────────────────────────────────────────────────────────────────
 Name: __________________________________________________
 Age: _____   Gender: □ Male  □ Female  □ Other
 Date: ${formattedDate}
 Contact: _______________________________________________
+Height: ______ cm   Weight: ______ kg   BMI: ______
 
-════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════
+🔴 PERSONAL RISK FACTORS (Check all that apply):
+────────────────────────────────────────────────────────────────────────
+□ Tobacco use (current/former)               □ Alcohol (>3 drinks/week)
+□ Family history of cancer (details below)   □ Previous radiation therapy
+□ HIV/AIDS or immunosuppressed               □ Chronic Hepatitis B/C
+□ Occupational exposures (chemicals, asbestos) □ Obesity (BMI >30)
+□ Inflammatory bowel disease                 □ Previous cancer diagnosis
+□ Human Papillomavirus (HPV) infection       □ Hormone replacement therapy
+
+════════════════════════════════════════════════════════════════════════
+👨‍👩‍👧‍👦 FAMILY HISTORY (1st & 2nd degree relatives):
+────────────────────────────────────────────────────────────────────────
+□ Breast cancer (especially <50 years)       □ Ovarian cancer
+□ Colorectal/colon cancer                    □ Prostate cancer
+□ Pancreatic cancer                          □ Melanoma/skin cancer
+□ Multiple cancers in family                 □ Other: _________________
+
+Details: ____________________________________________________________
+____________________________________________________________________
+
+════════════════════════════════════════════════════════════════════════
 ⚠️ WARNING SIGNS (Check if present >2 weeks):
-────────────────────────────────────────────────────────
-□ Unexplained weight loss (5+ kg in a month)
-□ Persistent fatigue not relieved by rest
-□ Unusual lumps or swelling anywhere in body
-□ Changes in bowel or bladder habits
-□ Persistent cough or hoarseness (>3 weeks)
-□ Difficulty swallowing
-□ Unexplained bleeding or bruising
-□ Non-healing sores or ulcers
-□ Changes in skin moles (size, color, shape)
-□ Persistent indigestion or abdominal pain
+────────────────────────────────────────────────────────────────────────
+□ Unexplained weight loss (5+ kg in month)   □ Persistent fatigue
+□ Unusual lumps or swelling                   □ Changes in bowel/bladder habits
+□ Persistent cough/hoarseness (>3 weeks)      □ Difficulty swallowing
+□ Unexplained bleeding/bruising               □ Non-healing sores/ulcers
+□ Changes in skin moles                       □ Persistent indigestion/pain
+□ Night sweats (unexplained)                  □ Loss of appetite
+□ Persistent fever (unexplained)              □ Persistent headaches
+□ Vision/hearing changes                      □ Neurological changes
 
-════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════
 👨 FOR MEN:
-────────────────────────────────────────────────────────
-□ Testicular lumps or swelling
-□ Changes in urinary habits (frequency, weak flow)
-□ Blood in urine or semen
-□ Erectile dysfunction (new onset)
+────────────────────────────────────────────────────────────────────────
+□ Testicular lumps/swelling                   □ Changes in urinary habits
+□ Blood in urine/semen                        □ Erectile dysfunction (new)
+□ Penile sores/discharge                      □ Breast changes/enlargement
 
-════════════════════════════════════════════════════════
+════════════════════════════════════════════════════════════════════════
 👩 FOR WOMEN:
-────────────────────────────────────────────────────────
-□ Breast lumps or thickening
-□ Nipple changes or discharge
-□ Abnormal vaginal bleeding
-□ Pelvic pain or pressure
-□ Changes in menstrual cycle
+────────────────────────────────────────────────────────────────────────
+□ Breast lumps/thickening                     □ Nipple changes/discharge
+□ Abnormal vaginal bleeding                   □ Pelvic pain/pressure
+□ Menstrual cycle changes                     □ Bloating/persistent fullness
+□ Vaginal discharge (unusual)                 □ Pain during intercourse
 
-════════════════════════════════════════════════════════
-📅 RECOMMENDED SCREENING SCHEDULE:
-────────────────────────────────────────────────────────
-┌─────────────────┬─────────────┬─────────────────────┐
-│   Cancer Type   │ Start Age   │     Frequency       │
-├─────────────────┼─────────────┼─────────────────────┤
-│ Breast Cancer   │ 40 years    │ Every 1-2 years     │
-│ Cervical Cancer │ 21 years    │ Every 3 years       │
-│ Prostate Cancer │ 50 years    │ Yearly              │
-│ Colorectal      │ 45 years    │ Every 10 years      │
-│ Oral Cancer     │ 30 years*   │ Yearly              │
-│ Lung Cancer     │ 50 years**  │ Yearly              │
-│ Skin Cancer     │ Any age     │ Self-check monthly  │
-└─────────────────┴─────────────┴─────────────────────┘
-*For tobacco/alcohol users | **For heavy smokers
+════════════════════════════════════════════════════════════════════════
+👶 AGE-SPECIFIC SYMPTOMS (Check if applicable):
+────────────────────────────────────────────────────────────────────────
+For Children/Teens:                           For Elderly (65+):
+□ Unexplained bone/joint pain                 □ Rapid cognitive decline
+□ Frequent infections                          □ Difficulty eating/swallowing
+□ Bruising/bleeding easily                    □ Unintentional weight loss
+□ Headaches with vomiting                     □ Balance/coordination issues
+□ Vision changes                              □ Multiple unexplained symptoms
 
-════════════════════════════════════════════════════════
-📋 MY SCREENING TRACKER:
-────────────────────────────────────────────────────────
-Last Breast Exam: ___________________ Next Due: ________
-Last Pap Smear: _____________________ Next Due: ________
-Last PSA Test: ______________________ Next Due: ________
-Last Colonoscopy: ___________________ Next Due: ________
-Last Dental Check: __________________ Next Due: ________
+════════════════════════════════════════════════════════════════════════
+📅 EVIDENCE-BASED SCREENING SCHEDULE (Based on Risk):
+────────────────────────────────────────────────────────────────────────
+┌─────────────────┬────────────────┬─────────────────┬─────────────────┐
+│   Cancer Type   │  Average Risk  │  Increased Risk │    Frequency    │
+├─────────────────┼────────────────┼─────────────────┼─────────────────┤
+│ Breast Cancer   │ 45-50 years    │ 40 years*       │ Every 1-2 years │
+│ Cervical Cancer │ 21-65 years    │ Earlier if HPV+ │ Every 3-5 years │
+│ Prostate Cancer │ 55-69 years**  │ 45 years*       │ Shared decision │
+│ Colorectal      │ 45-75 years    │ 40 years*       │ Every 10 years  │
+│ Oral Cancer     │ Any age***     │ Tobacco/alcohol │ Yearly exam     │
+│ Lung Cancer     │ 50-80 years****│ Heavy smokers   │ Yearly LDCT     │
+│ Skin Cancer     │ Any age        │ High sun exp.   │ Monthly self    │
+└─────────────────┴────────────────┴─────────────────┴─────────────────┘
+*With family history | **Shared decision-making | ***For high-risk groups
+****30+ pack-year smokers, current or quit <15 years
 
-════════════════════════════════════════════════════════
-❗ ACTION NEEDED:
-────────────────────────────────────────────────────────
-○ If 0-2 symptoms → Regular health check
-○ If 3+ symptoms → See doctor within 1 WEEK
-○ URGENT SYMPTOMS (see immediately):
-  • Coughing blood
-  • Blood in stool/urine
-  • Sudden severe pain
-  • Difficulty breathing
-  • Sudden vision changes
+════════════════════════════════════════════════════════════════════════
+📋 MY PERSONALIZED SCREENING TRACKER:
+────────────────────────────────────────────────────────────────────────
+Last Breast Exam/Mammogram: ___________ Next Due: ___________ 
+Last Pap Smear/HPV Test: ______________ Next Due: ___________
+Last PSA Test: _________________________ Next Due: ___________
+Last Colonoscopy: ______________________ Next Due: ___________
+Last Dental/Oral Exam: _________________ Next Due: ___________
+Last Skin Check: _______________________ Next Due: ___________
+Last Lung Screening: ___________________ Next Due: ___________
 
-════════════════════════════════════════════════════════
-📝 DOCTOR VISIT PREPARATION:
-────────────────────────────────────────────────────────
-□ List symptoms with dates started
-□ Note family cancer history:
-  - __________________________________________________
-  - __________________________________________________
-□ Questions for doctor:
-  1. ________________________________________________
-  2. ________________________________________________
-  3. ________________________________________________
-□ Bring previous medical reports
-□ List current medications
+════════════════════════════════════════════════════════════════════════
+❗ ACTION PLAN BASED ON SYMPTOMS:
+────────────────────────────────────────────────────────────────────────
+┌─────────────────┬────────────────────────────────┬──────────────────┐
+│ Symptom Count   │ Recommended Action            │ Timeframe        │
+├─────────────────┼────────────────────────────────┼──────────────────┤
+│ 0-1 symptoms    │ Regular health maintenance    │ Next checkup     │
+│ 2 symptoms      │ Schedule doctor appointment   │ Within 4 weeks   │
+│ 3+ symptoms     │ See primary care physician    │ Within 1 week    │
+│ URGENT SYMPTOMS │ Seek emergency/immediate care │ IMMEDIATELY      │
+└─────────────────┴────────────────────────────────┴──────────────────┘
 
-════════════════════════════════════════════════════════
-📞 EMERGENCY CONTACTS:
-────────────────────────────────────────────────────────
-• Ambulance: 108
+URGENT SYMPTOMS (Go to Emergency Room):
+• Coughing/vomiting blood                     • Seizures (new onset)
+• Blood in stool/urine                        • Difficulty breathing
+• Sudden severe pain                          • Sudden vision changes
+• Confusion/disorientation                    • Inability to swallow
+
+════════════════════════════════════════════════════════════════════════
+📝 DOCTOR VISIT PREPARATION CHECKLIST:
+────────────────────────────────────────────────────────────────────────
+□ List all symptoms with start dates and progression
+□ Bring family history information
+□ Previous medical records and imaging
+□ Current medications/supplements list
+□ List of allergies
+□ Insurance information
+□ Photo ID
+
+QUESTIONS FOR YOUR DOCTOR:
+1. Based on my risk factors, what screenings do I need? _______________
+2. Should I consider genetic counseling/testing? _______________________
+3. What lifestyle changes can reduce my cancer risk? ___________________
+4. What symptoms should prompt immediate follow-up? ___________________
+5. Should I see a specialist? If so, which type? _______________________
+
+════════════════════════════════════════════════════════════════════════
+📞 EMERGENCY & SUPPORT CONTACTS:
+────────────────────────────────────────────────────────────────────────
+• Emergency Ambulance: 108
 • Medical Emergency: 102
 • National Cancer Helpline: 1800-XXX-XXXX
-• My Doctor: ___________________ (___________)
-• Emergency Contact: ___________ (___________)
+• Mental Health Support: 1800-XXX-XXXX
+• My Primary Doctor: ___________________ (___________)
+• Specialist: __________________________ (___________)
+• Emergency Contact: ___________________ (___________)
 
-════════════════════════════════════════════════════════
-🌐 RESOURCES:
-────────────────────────────────────────────────────────
-Website: https://yaswanthhari.github.io/seenu-right-treatment/
-Find Hospitals: /find-help.html
-Contact: /contact.html
+════════════════════════════════════════════════════════════════════════
+🌐 DIGITAL RESOURCES & TOOLS:
+────────────────────────────────────────────────────────────────────────
+• Website: https://yaswanthhari.github.io/seenu-right-treatment/
+• Mobile App: Seenu's Right Treatment (iOS/Android)
+══════════════════════════════════════════════════════════════════════==
+💡 PREVENTION & LIFESTYLE RECOMMENDATIONS:
+────────────────────────────────────────────────────────────────────────
+1. NO tobacco in any form                   6. Maintain healthy weight
+2. Limit alcohol consumption                7. Practice sun protection
+3. Eat 5+ servings of fruits/vegetables    8. Get HPV vaccination
+4. Exercise 150+ minutes/week              9. Practice safe sex
+5. Get age-appropriate screenings          10. Manage stress effectively
 
-════════════════════════════════════════════════════════
-💡 IMPORTANT NOTES:
-────────────────────────────────────────────────────────
-1. Early detection increases survival rates by up to 90%
-2. Regular screening saves lives
-3. Don't ignore persistent symptoms
-4. Share family history with your doctor
-5. Maintain healthy lifestyle: no tobacco, balanced diet, exercise
+════════════════════════════════════════════════════════════════════════
+📊 SYMPTOM PROGRESSION TRACKER (Use for follow-up visits):
+────────────────────────────────────────────────────────────────────────
+Symptom: ________________ Start Date: _________ Severity: 1-10: ___
+How has it changed? □ Worse  □ Same  □ Better
+Triggers/Relief: ___________________________________________________
+Notes: ____________________________________________________________
 
-════════════════════════════════════════════════════════
-"Your health is your wealth. Get checked today!"
-════════════════════════════════════════════════════════
+Symptom: ________________ Start Date: _________ Severity: 1-10: ___
+How has it changed? □ Worse  □ Same  □ Better
+Triggers/Relief: ___________________________________________________
+Notes: ____________________________________________________________
+
+════════════════════════════════════════════════════════════════════════
+🔍 SELF-EXAMINATION GUIDANCE:
+────────────────────────────────────────────────────────────────────────
+• Breast/Testicular: Monthly, 7-10 days after period
+• Skin: Monthly, check all moles using ABCDE rule
+• Oral: Monthly, check for white/red patches, sores
+• Report any changes immediately to healthcare provider
+
+════════════════════════════════════════════════════════════════════════
+"Early detection through awareness and screening is your best defense!"
+════════════════════════════════════════════════════════════════════════
 Generated on: ${formattedDate}
-© Seenu's Right Treatment Foundation - Non-profit initiative`;
+Risk Score: ______/25 (Based on checked risk factors)
+Recommendation: ____________________________________________________
+Follow-up Date: ____________________________________________________
 
-        // Create and trigger download
-        const blob = new Blob([checklistContent], { type: 'text/plain;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `Cancer-Early-Detection-Checklist-${formattedDate.replace(/\//g, '-')}.txt`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        
-        // Show success message
-        alert('✅ Cancer Early Detection Checklist downloaded!\n\nSave this file, print it, and take it to your doctor.\nIt contains:\n• Symptom checklist\n• Screening schedule\n• Doctor visit preparation\n• Emergency contacts');
-    }
-</script>
+© Seenu's Right Treatment Foundation - Non-profit initiative
+This tool complements, but does not replace, professional medical advice.
+Always consult healthcare providers for personalized recommendations.`;
+
+    // Create and trigger download
+    const blob = new Blob([checklistContent], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Cancer-Risk-Assessment-Checklist-${formattedDate.replace(/\//g, '-')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    // Show enhanced success message with risk assessment information
+    alert(`✅ ENHANCED Cancer Risk Assessment Checklist Downloaded!
+
+SAVE & PRINT this personalized assessment tool.
+It now includes:
+
+📋 COMPREHENSIVE RISK ASSESSMENT:
+• Personal risk factors tracking
+• Family history documentation
+• Age-specific symptom guidance
+
+🎯 EVIDENCE-BASED SCREENING:
+• Risk-stratified screening schedule
+• Personalized tracking system
+• Latest guideline recommendations
+
+📝 CLINICAL PREPARATION:
+• Doctor visit preparation checklist
+• Symptom progression tracker
+• Emergency action plan
+
+💡 PREVENTION GUIDANCE:
+• Lifestyle recommendations
+• Self-examination guidance
+• Digital resource links
+
+IMPORTANT: This tool helps identify risks but does NOT diagnose cancer.
+Always discuss findings with your healthcare provider for proper evaluation.`);
+}
+    </script>
     <script>
         // Dynamic CSS Injection for responsiveness
         const style = document.createElement('style');
