@@ -459,6 +459,7 @@
         </section>
 
         <!-- Action Section -->
+                <!-- Action Section -->
         <section style="margin: 50px 0; text-align: center;">
             <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 40px; border-radius: 10px;">
                 <h2 style="color: white;">⏱️ Don't Wait, Get Checked!</h2>
@@ -468,17 +469,125 @@
                     <a href="find-help.html" class="btn" style="background: white; color: #059669;">
                         <i class="fas fa-hospital"></i> Find Screening Centers
                     </a>
-                    <a href="contact.html" class="btn" style="background: #2563eb; color: white;">
+                    <button onclick="showContactForm()" class="btn" style="background: #2563eb; color: white;">
                         <i class="fas fa-question-circle"></i> Ask Questions
-                    </a>
+                    </button>
                     <button onclick="downloadChecklist()" class="btn" style="background: #f59e0b; color: white;">
-                     <i class="fas fa-file-download"></i> Download & Print Checklist
-                     </button>
+                        <i class="fas fa-file-download"></i> Download & Print Checklist
+                    </button>
                 </div>
             </div>
         </section>
-    </div>
 
+        <!-- NEW CONTACT FORM SECTION (Hidden by default) -->
+        <section id="contactFormSection" style="display: none; margin: 50px 0; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="color: #2563eb;"><i class="fas fa-comments"></i> ✉️ Send Us a Message</h2>
+                <p>Fill this form and our team will contact you within 24 hours.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <!-- Quick Contact Form -->
+                <div style="padding: 20px; background: #f8fafc; border-radius: 10px;">
+                    <h3 style="color: #2563eb; margin-bottom: 20px;">Quick Contact Form</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Full Name *</label>
+                        <input type="text" id="contactName" placeholder="Enter your full name" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Phone Number *</label>
+                        <input type="tel" id="contactPhone" placeholder="+91 XXXXXXXXXX" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Email Address</label>
+                        <input type="email" id="contactEmail" placeholder="your.email@example.com" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">City *</label>
+                        <input type="text" id="contactCity" placeholder="Enter your city" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Type of Query *</label>
+                        <select id="queryType" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; background: white;">
+                            <option value="">Select query type</option>
+                            <option value="symptoms">I have symptoms</option>
+                            <option value="screening">Need screening information</option>
+                            <option value="doctor">Need doctor recommendation</option>
+                            <option value="support">Need emotional/financial support</option>
+                            <option value="other">Other query</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">Message *</label>
+                        <textarea id="contactMessage" placeholder="Please describe your query in detail..." style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; min-height: 100px;"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <input type="checkbox" id="contactConsent">
+                        <label for="contactConsent" style="margin-left: 8px; font-size: 14px;">
+                            I agree to receive communications from Seenu's Right Treatment
+                        </label>
+                    </div>
+                    
+                    <button onclick="submitContactForm()" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 15px 30px; border: none; border-radius: 8px; width: 100%; font-size: 16px; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    
+                    <div id="contactMessageAlert" style="margin-top: 15px; padding: 10px; border-radius: 5px; display: none;"></div>
+                </div>
+
+                <!-- Location Information -->
+                <div style="padding: 20px; background: #f0f9ff; border-radius: 10px;">
+                    <h3 style="color: #2563eb; margin-bottom: 20px;">📍 Our Location & Contacts</h3>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                        <h4 style="color: #059669; margin-bottom: 10px;"><i class="fas fa-map-marker-alt"></i> Seenu's Right Treatment Foundation</h4>
+                        <p style="color: #666; line-height: 1.6;">
+                            This site is made from my beloved brother loss,<br>
+                            Bapuji colony, Sullurupeta,<br>
+                            Tirupati dist - 524121<br>
+                            Andhra Pradesh, India
+                        </p>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                        <h4 style="color: #dc2626; margin-bottom: 10px;"><i class="fas fa-envelope"></i> Email Us</h4>
+                        <p style="color: #666;">
+                            contact@seenurighttreatment.org<br>
+                            info@seenurighttreatment.org
+                        </p>
+                        <button onclick="sendEmailToUs()" style="background: #dc2626; color: white; padding: 8px 15px; border: none; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </button>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                        <h4 style="color: #7c3aed; margin-bottom: 10px;"><i class="fas fa-directions"></i> Get Directions</h4>
+                        <p style="color: #666; margin-bottom: 10px;">
+                            Click below to open location in Google Maps
+                        </p>
+                        <button onclick="openDirections()" style="background: #7c3aed; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">
+                            <i class="fas fa-map-signs"></i> Open Directions
+                        </button>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                        <h4 style="color: white; margin-bottom: 10px;"><i class="fas fa-ambulance"></i> Emergency Contacts</h4>
+                        <div style="font-size: 1.8em; font-weight: bold; margin: 10px 0;">108 / 102</div>
+                        <p style="font-size: 0.9em; opacity: 0.9;">
+                            Ambulance & Medical Emergency<br>
+                            National Cancer Helpline: 1800-XXX-XXXX
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -512,8 +621,136 @@
         </div>
     </footer>
 
-    <script>
-    function downloadChecklist() {
+       <script>
+        // Your existing downloadChecklist function stays here
+        
+        // NEW CONTACT FORM FUNCTIONS
+        
+        function showContactForm() {
+            // For Option 1 (inline section)
+            document.getElementById('contactFormSection').style.display = 'block';
+            
+            // Scroll to form
+            document.getElementById('contactFormSection').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+            
+            // For Option 2 (modal) - uncomment below and remove above
+            // document.getElementById('contactModal').style.display = 'flex';
+        }
+        
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+        
+        function submitContactForm() {
+    // Get form values
+    const name = document.getElementById('contactName').value.trim();
+    const phone = document.getElementById('contactPhone').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const city = document.getElementById('contactCity').value.trim();
+    const queryType = document.getElementById('queryType').value;
+    const message = document.getElementById('contactMessage').value.trim();
+    const consent = document.getElementById('contactConsent').checked;
+    
+    // Validation
+    if (!name || !phone || !city || !queryType || !message) {
+        showAlert('contactMessageAlert', 'Please fill all required fields (*)', 'error');
+        return;
+    }
+    
+    // Validate phone
+    const phoneRegex = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+    if (!phoneRegex.test(phone)) {
+        showAlert('contactMessageAlert', 'Please enter a valid Indian phone number (10 digits starting with 7,8,9)', 'error');
+        return;
+    }
+    
+    if (!consent) {
+        showAlert('contactMessageAlert', 'Please agree to receive communications', 'error');
+        return;
+    }
+    
+    // Format WhatsApp message
+    const whatsappMessage = `*NEW CONTACT FORM - Early Detection Page*%0A%0A` +
+                           `*Name:* ${name}%0A` +
+                           `*Phone:* ${phone}%0A` +
+                           `*Email:* ${email || 'Not provided'}%0A` +
+                           `*City:* ${city}%0A` +
+                           `*Query Type:* ${queryType}%0A` +
+                           `*Message:* ${message.substring(0, 500)}%0A%0A` +
+                           `*Source:* Early Detection Page%0A` +
+                           `*Submitted:* ${new Date().toLocaleString('en-IN')}`;
+    
+    // Use API.WHATSAPP.COM (more reliable than wa.me)
+    const yourWhatsAppNumber = '919391169152'; // 91 + 9391169152
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${yourWhatsAppNumber}&text=${whatsappMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message
+    showAlert('contactMessageAlert', '✅ Message sent! Opening WhatsApp... If WhatsApp doesn\'t open, please message us directly at +91 9391169152', 'success');
+    
+    // Clear form after 3 seconds
+    setTimeout(() => {
+        document.getElementById('contactName').value = '';
+        document.getElementById('contactPhone').value = '';
+        document.getElementById('contactEmail').value = '';
+        document.getElementById('contactCity').value = '';
+        document.getElementById('queryType').value = '';
+        document.getElementById('contactMessage').value = '';
+        document.getElementById('contactConsent').checked = false;
+    }, 3000);
+}
+        
+        function showAlert(elementId, message, type) {
+            const alertDiv = document.getElementById(elementId);
+            alertDiv.textContent = message;
+            alertDiv.style.display = 'block';
+            
+            if (type === 'success') {
+                alertDiv.style.background = '#d1fae5';
+                alertDiv.style.color = '#065f46';
+                alertDiv.style.border = '1px solid #a7f3d0';
+            } else {
+                alertDiv.style.background = '#fee2e2';
+                alertDiv.style.color = '#991b1b';
+                alertDiv.style.border = '1px solid #fecaca';
+            }
+            
+            setTimeout(() => {
+                alertDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        function sendEmailToUs() {
+            const subject = 'Inquiry from Early Detection Page - Seenu Right Treatment';
+            const body = 'Dear Seenu Right Treatment Team,\n\nI would like to inquire about:\n\n\n\nBest regards,\n[Your Name]';
+            window.location.href = `mailto:yaswanthharit@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        
+        function openDirections() {
+            // Google Maps location - UPDATE THIS COORDINATES
+            const latitude = '13.696';  // Example: Sullurupeta coordinates
+            const longitude = '80.0209'; // Example: Sullurupeta coordinates
+            
+            // Option 1: Using coordinates
+            window.open(`https://www.google.com/maps?q=${latitude},${longitude}`, '_blank');
+            
+            // Option 2: Using address
+            // window.open('https://maps.google.com/?q=Seenu+Right+Treatment+Foundation+Bapuji+colony+Sullurupeta+Tirupati', '_blank');
+        }
+        
+        // Auto-scroll if there's a hash in URL
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hash === '#contact') {
+                showContactForm();
+            }
+        });
+        </script>
+        <script>
+        function downloadChecklist() {
     // Get current date in proper format
     const today = new Date();
     const formattedDate = today.toLocaleDateString('en-IN', {
@@ -757,24 +994,7 @@ It now includes:
 
 IMPORTANT: This tool helps identify risks but does NOT diagnose cancer.
 Always discuss findings with your healthcare provider for proper evaluation.`);
-}
-    </script>
-    <script>
-        // Dynamic CSS Injection for responsiveness
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @media (max-width: 768px) {
-                .symptoms-grid {
-                    grid-template-columns: 1fr !important;
-                }
-                .check-step {
-                    flex-direction: column !important;
-                    align-items: flex-start !important;
-                }
-            }
-        `;
-
-    </script>   
+            }    </script>
        
 </body>
 </html>
