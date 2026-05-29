@@ -337,8 +337,24 @@
         </div>
     </div>
 
+    <script src="/socket.io/socket.io.js"></script>
     <script src="admin-script.js"></script>
     <script>
+        // Socket.IO Setup
+        const socket = io();
+        
+        socket.on('patient_added', (patient) => {
+            loadDashboardData();
+        });
+        
+        socket.on('patient_updated', (patient) => {
+            loadDashboardData();
+        });
+
+        socket.on('hospital_added', (hospital) => {
+            loadDashboardData();
+        });
+
         // Sidebar navigation
         document.querySelectorAll('.sidebar-menu a').forEach(link => {
             link.addEventListener('click', function(e) {
